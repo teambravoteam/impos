@@ -1,0 +1,11 @@
+CREATE TABLE Customer(
+	name CHAR(1) NOT NULL
+);
+
+
+CREATE TABLE Sample10(
+	no			INT(11)		DEFAULT NULL,
+	name		VARCHAR(20)	DEFAULT NULL,
+	birthday	DATE		DEFAULT NULL,
+	address		VARCHAR(40)	DEFAULT NULL
+);
