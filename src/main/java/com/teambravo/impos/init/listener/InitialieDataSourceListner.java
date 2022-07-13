@@ -27,9 +27,13 @@ public class InitialieDataSourceListner implements ServletContextListener {
 			prop.load(is);
 			
 			String jdbcDriver = prop.getProperty("jdbc.driver");
+			System.out.println(jdbcDriver);
 			String jdbcUrl = prop.getProperty("jdbc.url");
+			System.out.println(jdbcUrl);
 			String jdbcName = prop.getProperty("jdbc.username");
+			System.out.println(jdbcName);
 			String passwd = prop.getProperty("jdbc.password");
+			System.out.println(passwd);
 			
 			NamingService namingService = NamingService.getInstance();
 			
