@@ -1,11 +1,9 @@
-CREATE TABLE Customer(
-	name CHAR(1) NOT NULL
-);
+CREATE TABLE Manager (
+   mid			BIGINT				PRIMARY KEY AUTO_INCREMENT,
+   name      	VARCHAR(16)      	NOT NULL,
+   userId      	VARCHAR(16)      	NOT NULL,
+   passwd   	VARCHAR(20)      	NOT NULL,
+   area      	VARCHAR(30)      	NOT NULL
+) AUTO_INCREMENT = 1;
 
-
-CREATE TABLE Sample10(
-	no			INT(11)		DEFAULT NULL,
-	name		VARCHAR(20)	DEFAULT NULL,
-	birthday	DATE		DEFAULT NULL,
-	address		VARCHAR(40)	DEFAULT NULL
-);
+SELECT * FROM Manager;
