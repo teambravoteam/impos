@@ -78,4 +78,5 @@ public class Managerdao {
 		return user;
 		
 	}
+	
 }

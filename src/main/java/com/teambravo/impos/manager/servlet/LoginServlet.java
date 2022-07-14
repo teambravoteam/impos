@@ -48,5 +48,9 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("로그인 성공");
 		response.sendRedirect("mypage");
 	}
+	
+	
+	
+	
 
 }

@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>가입완료</h1>
+	
 </body>
 </html>
