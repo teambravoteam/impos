@@ -53,9 +53,10 @@ public class Product {
 		this.proCategory = proCategory;
 	}
 	
-//	@Override
-//    public String toString() {
-//        return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice="
-//        		+ proPrice + ", proCategory=" + proCategory + "]";
-//    }
+	
+	@Override
+    public String toString() {
+        return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice="
+        		+ proPrice + ", proCategory=" + proCategory + "]";
+    }
 }
