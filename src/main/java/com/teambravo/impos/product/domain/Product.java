@@ -1,14 +1,15 @@
 package com.teambravo.impos.product.domain;
 
-import java.util.List;
+//상품코드 - proCode - VARCHAR
+//상품명 - proName - VARCHAR
+//가격 - proPrice - DOUBLE
+//카테고리 - proCategory - VARCHAR
+//카테고리에는 Coffee, Cookie, Cake
 
-//- 상품코드 - proCode - VARCHAR
-//- 상품명 - proName - VARCHAR
-//- 가격 - proPrice - DOUBLE
-//- 카테고리 - proCategory - VARCHAR
-
+//기능
 //-. 상품 조회
 //-. 상품 등록
+//-. 상품 수정/삭제
 
 public class Product {
 	protected String proCode;//상품코드
@@ -52,14 +53,9 @@ public class Product {
 		this.proCategory = proCategory;
 	}
 	
-	//상품등록
-	public void addProduct() {
-		
-	}
-	
-	//상품조회
-	public List<Product> findAllProduct() {
-		return null;
-	}
-	
+//	@Override
+//    public String toString() {
+//        return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice="
+//        		+ proPrice + ", proCategory=" + proCategory + "]";
+//    }
 }
