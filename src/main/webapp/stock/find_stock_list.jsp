@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>재고수정</title>
 <link rel="stylesheet" href="../ms_incl/ms_init.css">
 <link rel="stylesheet" href="../ms_incl/ms_style.css">
 <link rel="stylesheet" href="./css/stock_style.css">
@@ -34,11 +34,11 @@
 				<!-- content영역 -->
 				<div id="content">
 					<div class="content-info">
-						<h2 class="title">재고검색</h2>
+						<h2 class="title">재고수정</h2>
 						<div class="loaction-wrap">location</div>
 					</div>
 					<div class="content-body">
-						<form class="searchform" action="/stock/FindAllStock" method="post">
+						<form class="searchform" action="index.html" method="post">
 							<select name="category" class="category">
 								<option value="all">전체</option>
 								<option value="coffee">coffee</option>

@@ -5,16 +5,14 @@ import java.util.List;
 
 import com.teambravo.impos.product.dao.ProductDao;
 import com.teambravo.impos.product.domain.Product;
+import com.teambravo.impos.stock.service.StockService;
 
 public class ProductService {
 	private ProductDao productDao = new ProductDao();
-
-	// 상품등록
-	/*public void addProduct(Product product) {
-		productDao.addProduct(product);
-		
-	}*/
 	
+	private StockService stockService = new StockService();
+	
+	// 상품등록
 	public void addProductTable(String proName, double proPrice, String proCategory) {
 		String proCode = null;
 		
@@ -34,6 +32,11 @@ public class ProductService {
 		product.setProCode(proCode);
 		
 		productDao.addProduct(product);
+		
+		//상품등록 시 재고테이블에도 추가하기 (커피가 아닐경우만)
+		if (!proCategory.equals("coffee")) {
+			stockService.addStockTable(proCategory, proCode);
+		}
 	}
 
 	// 상품삭제

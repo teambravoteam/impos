@@ -1,1 +1,91 @@
 @charset "UTF-8";
+/*content영역*/
+#content {
+  float: left;
+  /*width: calc(100% - 280px); /*100%-왼쪽메뉴-margin*/
+  /* background: skyblue; */
+  margin-left: 80px;
+  margin-top: 50px;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+/* 검색영역 */
+form.searchform select.category {
+  width: 100px;
+  height: 30px;
+}
+
+form.searchform select.findtype {
+  width: 100px;
+  height: 30px;
+}
+
+form.searchform input.searchinput {
+  height: 26px;
+}
+form.searchform button {
+  height: 30px;
+}
+
+
+/* content table영역 */
+.content-table {
+  position: absolute;
+  width: 100%;
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.content-table table.thead {
+  table-layout: fixed;
+  width: 1000px;
+}
+
+.content-table table.thead th {
+  padding: 15px 15px;
+  text-align: left;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.tbl-content {
+  width: 1000px;
+  height: 400px;
+  overflow-x: auto;
+  margin-top: 0;
+  border: 1px solid black;
+}
+
+.tbl-content table {
+  width: 100%;
+  table-layout: fixed;
+
+}
+
+.tbl-content table tr {
+border-bottom: 1px solid grey;
+}
+
+.tbl-content table tr:last-child {
+border-bottom: none;
+}
+
+.tbl-content table td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 15px;
+  color: black;
+
+  border-right: 1px solid grey;
+}
+
+.tbl-content table td:last-child {
+  border-right: none;
+}
+

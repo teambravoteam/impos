@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.teambravo.impos.stock.dao.StockDao;
+import com.teambravo.impos.stock.domain.SelectStock;
 import com.teambravo.impos.stock.domain.Stock;
 
 public class StockService {
@@ -11,12 +12,19 @@ public class StockService {
 	private StockDao stockDao;
 	
 	// 상품등록 시 재고목록에도 추가
-	public void addStockTable(Stock stock) {
+	/*public void addStockTable(Stock stock) {
 		String category = stock.getScategory();
 		// 카테고리가 커피가 아니라면 재고목록에 추가
 		if (!category.equals("coffee")) {
 			stockDao = new StockDao();
 			stockDao.addStockTable(stock);
+		}
+	}*/
+	
+	public void addStockTable(String category, String code) {
+		if (!category.equals("coffee")) {
+			stockDao = new StockDao();
+			stockDao.addStockTable(category, code);
 		}
 	}
 	
@@ -37,18 +45,18 @@ public class StockService {
 	}
 	
 	// 카테고리별 재고항목 조회
-	public List<Stock> findAllStock(String stockCategory) {
+	public List<SelectStock> findAllStock(String stockCategory) {
 		stockDao = new StockDao();
 		return stockDao.findAllStock(stockCategory);
 	}
 	
 	// 재고항목 전체 조회
-	public List<Stock> allStockList() {
+	public List<SelectStock> allStockList() {
 		// 각 카테고리별 리스트 뽑아서 하나의 리스트에 합침
-		List<Stock> cakeList = findAllStock("cake");
-		List<Stock> cookieList = findAllStock("cookie");
+		List<SelectStock> cakeList = findAllStock("cake");
+		List<SelectStock> cookieList = findAllStock("cookie");
 		
-		List<Stock> allStockList = new ArrayList<Stock>();
+		List<SelectStock> allStockList = new ArrayList<SelectStock>();
 		allStockList.addAll(cakeList);
 		allStockList.addAll(cookieList);
 		
@@ -57,13 +65,13 @@ public class StockService {
 	
 	
 	// 상품 코드로 재고 조회
-	public Stock findStockByCode(String category, String code) {
+	public SelectStock findStockByCode(String category, String code) {
 		stockDao = new StockDao();
 		return stockDao.findStockByCode(category, code);
 	}
 	
 	// 상품 이름으로 재고 조회
-	public Stock findStockByName(String category, String name) {
+	public SelectStock findStockByName(String category, String name) {
 		stockDao = new StockDao();
 		return stockDao.findStockByName(category, name);
 	}
