@@ -1,77 +1,229 @@
 @charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/*style적용할 때 body를 감싸는 wrap
+content영역을 다 감싸는 container 태그가 필요함*/
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+/* header */
+.headarea {
+  width: 100%;
+  height: 80px;
+  background: #f2f2f2;
+  z-index: 10;
+}
+
+.headarea .logo {
+  display: block;
+  position: absolute;
+  left: 50px;
+  top: 20px;
+  width: 60px;
+  height: 30px;
+  font-family: 'Secular One', sans-serif;
+  font-size: 30px;
+}
+
+.headarea .logo a {
+  color: #3f5ec4;
+}
+
+
+.headarea .gnb {
+  position: relative;
+  height: 60px;
+  right: 30px;
+}
+
+.gnb ul {
+  width: 100%;
+  height: 80px;
+  text-align: right;
+  margin: 0 auto;
+}
+.gnb li {
+  display: inline-block;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.gnb li a {
+  display: block;
+  height: 80px;
+  line-height: 80px;
+  color: black;
+  transition: .3s;
+}
+
+.gnb li a:hover {
+  color: #4d6edb;
+}
+
+/* container */
+main {
+  display: block;
+  height: calc(100vh - 130px);
+}
+#container {
+  display: flex;
+  height: calc(100vh - 80px - 50px); /*100% - header - footer*/
+}
+
+/* 왼쪽 메뉴 */
+section#snb {
+  flex: 250px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
+  background: #e1e7f0;
+}
+
+section#snb nav ul {
+  border-bottom: 1px solid #d3d8dd;
+}
+
+section#snb nav ul li {
+  border-bottom: 1px solid #eaeef3;
+}
+section#snb nav ul li a {
+  color: #555;
+
+  display: inline-block;
+  width: 100%;
+  line-height: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding-left: 50px;
+}
+
 /*content영역*/
 #content {
-  float: left;
-  /*width: calc(100% - 280px); /*100%-왼쪽메뉴-margin*/
-  /* background: skyblue; */
-  margin-left: 80px;
-  margin-top: 50px;
-  position: relative;
-  margin-bottom: 70px;
-}
-
-/* 검색영역 */
-form.searchform select.category {
-  width: 100px;
-  height: 30px;
-}
-
-form.searchform select.findtype {
-  width: 100px;
-  height: 30px;
-}
-
-form.searchform input.searchinput {
-  height: 26px;
-}
-form.searchform button {
-  height: 30px;
+  width: 100%;
+  padding: 50px;
 }
 
 
 /* content table영역 */
-.content-table {
-  position: absolute;
+table {
   width: 100%;
-  margin-top: 20px;
+  border-collapse: collapse;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* form table */
+table.search-table {
+  margin-top: 10px;
+  border: 1px solid #bdbdbd;
+
+}
+
+table.search-table tr {
+  border: 1px solid #bdbdbd;
+}
+
+table.search-table th {
+  width: 20%;
+  border-right: 1px solid #bdbdbd;
+  padding: 10px 0;
+  background: #f2f2f2;
+}
+table.search-table td {
+  width: 80%;
+  padding: 5px 10px;
+}
+
+button.findall {
+  width: 100px;
+  height: 28px;
+}
+
+select.category {
+  width: 120px;
+  height: 28px;
+}
+
+select.findtype {
+  width: 80px;
+  height: 28px;
+}
+
+input.searchinput {
+  width: 200px;
+  height: 24px;
+}
+
+button.searchbtn {
+  width: 40px;
+  height: 28px;
+
+}
+
+/*검색결과 테이블*/
+.content-table {
+  margin-top: 30px;
 }
 .content-table table.thead {
   table-layout: fixed;
-  width: 1000px;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  background: #f2f2f2;
 }
 
 .content-table table.thead th {
-  padding: 15px 15px;
+  padding: 20px 15px;
   text-align: left;
-  font-weight: 300;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: black;
+  border-right: 1px solid #bdbdbd;
+}
+
+.content-table table.thead th:last-child {
+  border: none;
+}
+
+.content-table table.thead th:nth-child(1) {
+  width: 10%;
+}
+.content-table table.thead th:nth-child(2) {
+  width: 18%;
+}
+.content-table table.thead th:nth-child(3) {
+  width: 20%;
+}
+.content-table table.thead th:nth-child(4) {
+  width: 18%;
+}
+.content-table table.thead th:nth-child(5) {
+  width: 18%;
+}
+.content-table table.thead th:nth-child(6) {
+  width: 16%;
 }
 
 .tbl-content {
-  width: 1000px;
-  height: 400px;
-  overflow-x: auto;
   margin-top: 0;
-  border: 1px solid black;
+  height: 300px;
+  overflow-x: auto;
 }
 
 .tbl-content table {
   width: 100%;
+  border-collapse: collapse;
   table-layout: fixed;
 
 }
 
 .tbl-content table tr {
-border-bottom: 1px solid grey;
-}
-
-.tbl-content table tr:last-child {
-border-bottom: none;
+border: 1px solid #bdbdbd;
+border-top: none;
 }
 
 .tbl-content table td {
@@ -81,11 +233,55 @@ border-bottom: none;
   font-weight: 300;
   font-size: 15px;
   color: black;
+  border-right: 1px solid #bdbdbd;
+}
 
-  border-right: 1px solid grey;
+.tbl-content table td.t6 {
+  background: #f0f4fa;
 }
 
 .tbl-content table td:last-child {
   border-right: none;
 }
 
+.tbl-content table td:nth-child(1) {
+  width: 10%;
+}
+.tbl-content table td:nth-child(2) {
+  width: 18%;
+}
+.tbl-content table td:nth-child(3) {
+  width: 20%;
+}
+.tbl-content table td:nth-child(4) {
+  width: 18%;
+}
+.tbl-content table td:nth-child(5) {
+  width: 18%;
+}
+.tbl-content table td:nth-child(6) {
+  width: 16%;
+}
+
+
+
+/* footer */
+footer {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: #f2f2f2;
+
+}
+
+footer .inner {
+  width: 1200px;
+  margin: 0 auto;
+
+}
+
+footer .inner .copyright {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+}

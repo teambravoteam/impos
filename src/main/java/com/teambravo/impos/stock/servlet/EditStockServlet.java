@@ -7,11 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.teambravo.impos.stock.service.StockService;
+
 
 @WebServlet("/stock/edit_stock")
 public class EditStockServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	private StockService stockService = new StockService();
+	
     public void init() throws ServletException {
     	
     }
