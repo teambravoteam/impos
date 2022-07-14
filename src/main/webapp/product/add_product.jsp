@@ -35,7 +35,6 @@
         <td>상품이미지</td>
         <td><input type="file" class="proimg" name="proimg" size="10"></td>
       </tr>
-      
       <tr>
         <td colspan="2">
           <button type="button" name="">취소</button>

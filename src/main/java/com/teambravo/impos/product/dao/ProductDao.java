@@ -91,7 +91,6 @@ public class ProductDao {
 			sql = "SELECT * FROM Cake";
 		}
 		List<Product> productList = new ArrayList<Product>();
-
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;

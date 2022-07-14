@@ -63,7 +63,7 @@ public class AddProductServlet extends HttpServlet {
 	System.out.println(proCategory);
 	
 	productService.addProductTable(proName, proPrice, proCategory);
-	
+
 	
 	//3. 비즈니스 서비스 호출
 	
