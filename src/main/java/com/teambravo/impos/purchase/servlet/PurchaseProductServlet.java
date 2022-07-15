@@ -33,6 +33,7 @@ public class PurchaseProductServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		cart.cleanCartList();
 		double money = Integer.parseInt(request.getParameter("money"));
 		Product p = null;
 		String item1name = request.getParameter("proName1");
