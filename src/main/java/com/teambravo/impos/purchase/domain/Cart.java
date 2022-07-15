@@ -4,30 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.teambravo.impos.product.domain.Product;
+import com.teambravo.impos.product.service.ProductService;
 
 public class Cart {
-	private List<List> cartList = new ArrayList<List>();	
+	private static Cart cart = new Cart();
 	
-	public List<List> getCartList() {
+	private static List<MenuList> cartList;	
+	
+	private Cart() {
+		cartList = new ArrayList<MenuList>();
+	}
+	
+	public static Cart getCart() {
+		return cart;
+	}
+	
+	public List<MenuList> getCartList() {
 		return cartList;
 	}
-	
-	public void createItemList() {
-		//List<Product> itemList = productService.findMenuList();
-		
+	public void addList(MenuList menuList) {
+		cartList.add(menuList);
 	}
 	
-	
-	public void addItem(Product p) {
-		
+	public void cleanCartList() {
+		cartList.clear();
 	}
-	
-	public void removeItem(Product p) {
 		
-	}
-	
-	public void purchaseItem() {
-		
-	}
+
 	
 }

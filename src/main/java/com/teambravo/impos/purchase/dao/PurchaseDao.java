@@ -8,16 +8,24 @@ import java.util.List;
 
 import com.teambravo.impos.init.domain.DataSource;
 import com.teambravo.impos.init.service.NamingService;
+import com.teambravo.impos.material.domain.Material;
+import com.teambravo.impos.material.service.MaterialService;
 import com.teambravo.impos.product.domain.Product;
 import com.teambravo.impos.purchase.domain.Cart;
+import com.teambravo.impos.purchase.domain.MenuList;
+import com.teambravo.impos.stock.domain.SelectStock;
+import com.teambravo.impos.stock.domain.Stock;
+import com.teambravo.impos.stock.service.StockService;
 
 public class PurchaseDao {
 	NamingService namingService = NamingService.getInstance();
 	DataSource da = (DataSource)namingService.getAttribute("dataSource");
+	StockService stockService;
+	MaterialService materialService;
 	
 	
 	public void purchaseProductInsertSales(Cart cart) {
-		List<List> run = new ArrayList<List>(); 		
+		List<MenuList> list = cart.getCartList(); 		
 		
 		String sql = "INSERT INTO Sale(saCode,saName,saPrice,saCategory,saCount)"
 				+ "VALUES(?,?,?,?,?)";	
@@ -28,13 +36,14 @@ public class PurchaseDao {
 				con = da.getConnection();			
 				pstmt = con.prepareStatement(sql);	
 				
-				for(List<Product> li : run) {
+				for(MenuList li : list) {
+					Product p = li.getProduct();					
 					
-					String saCode = li.get(0).getProCode();
-					String saName = li.get(0).getProName();
-					Double saPrice = li.get(0).getProPrice();
-					String saCategory = li.get(0).getProCategory();			
-					int saCount = li.size();	
+					String saCode = p.getProCode();
+					String saName = p.getProName();
+					Double saPrice = p.getProPrice();
+					String saCategory = p.getProCategory();
+					int saCount = li.getCount();
 					
 					pstmt.setString(1, saCode);
 					pstmt.setString(2, saName);
@@ -42,6 +51,7 @@ public class PurchaseDao {
 					pstmt.setString(4, saCategory);
 					pstmt.setInt(5, saCount);
 					
+				
 					pstmt.executeUpdate();						
 				}								
 			}			
@@ -53,10 +63,48 @@ public class PurchaseDao {
 		}
 	}
 	
-	public void purchaseProductDeleteStock(Cart cart) {
-		List<List> run = new ArrayList<List>(); 
+	public void purchaseProductDeleteCoffeeMaterial(MenuList menuList) {	
+		String sName = menuList.getProduct().getProName();		
+		Material material = materialService.findMaterialByName(sName);
+		double prematerial = material.getMaterialVolume();
 		
-		String sql = "UPDATE Stock SET stock=? WHERE sCode=?";
+		String sql = "UPDATE Material SET stock=? WHERE sCode=?";
+		try {			
+			Connection con = null;
+			PreparedStatement pstmt = null;	
+			ResultSet rs = null;
+			try {				
+				con = da.getConnection();			
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();				
+				if(rs.next()) {					
+					String sCode = menuList.getProduct().getProCode();
+					double materialCount = prematerial - menuList.getCount();
+					
+					pstmt.setString(1,sCode);
+					pstmt.setDouble(2,materialCount);						
+						
+					pstmt.executeUpdate();			
+				}
+				
+			}			
+			finally{
+				da.close(rs,pstmt,con);
+			}	
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void purchaseProductDeleteCakeStock(MenuList menuList) {
+		String sName = menuList.getProduct().getProName();
+		String sCate = menuList.getProduct().getProCategory();
+		SelectStock stock = stockService.findStockByName(sCate, sName);
+		int preStock = stock.getStock();
+		
+		
+		String sql = "UPDATE CakeStock SET stock=? WHERE sCode=?";
 		try {			
 			Connection con = null;
 			PreparedStatement pstmt = null;	
@@ -66,10 +114,51 @@ public class PurchaseDao {
 				pstmt = con.prepareStatement(sql);
 				rs = pstmt.executeQuery();				
 				if(rs.next()) {
-					for(List<Product> li : run) {										
-						pstmt.executeUpdate();			
-					}
+					String sCode = menuList.getProduct().getProCode();
+					int stockCount = preStock - menuList.getCount();
+					
+					pstmt.setString(1,sCode);
+					pstmt.setDouble(2,stockCount);
+					
+					pstmt.executeUpdate();			
 				}
+				
+			}			
+			finally{
+				da.close(rs,pstmt,con);
+			}	
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void purchaseProductDeleteCookieStock(MenuList menuList) {
+		String sName = menuList.getProduct().getProName();
+		String sCate = menuList.getProduct().getProCategory();
+		SelectStock stock = stockService.findStockByName(sCate, sName);
+		int preStock = stock.getStock();
+		
+		String sql = "UPDATE CookieStock SET stock=? WHERE sCode=?";
+		try {			
+			Connection con = null;
+			PreparedStatement pstmt = null;	
+			ResultSet rs = null;
+			try {				
+				con = da.getConnection();			
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();				
+				if(rs.next()) {
+					String sCode = menuList.getProduct().getProCode();
+					int stockCount = preStock - menuList.getCount();
+					
+					pstmt.setString(1,sCode);
+					pstmt.setDouble(2,stockCount);
+					
+						
+					pstmt.executeUpdate();			
+				}
+				
 			}			
 			finally{
 				da.close(rs,pstmt,con);

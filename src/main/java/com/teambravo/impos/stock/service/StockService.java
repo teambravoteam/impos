@@ -9,17 +9,7 @@ import com.teambravo.impos.stock.domain.Stock;
 
 public class StockService {
 	
-	private StockDao stockDao;
-	
-	// 상품등록 시 재고목록에도 추가
-	/*public void addStockTable(Stock stock) {
-		String category = stock.getScategory();
-		// 카테고리가 커피가 아니라면 재고목록에 추가
-		if (!category.equals("coffee")) {
-			stockDao = new StockDao();
-			stockDao.addStockTable(stock);
-		}
-	}*/
+	private StockDao stockDao;	
 	
 	public void addStockTable(String category, String code) {
 		if (!category.equals("coffee")) {

@@ -144,8 +144,7 @@ public class ProductDao {
 					product.setProCode(rs.getString("proCode"));
 					product.setProName(rs.getString("proName"));
 					product.setProPrice(rs.getDouble("proPrice"));
-					product.setProCategory(rs.getString("proCategory"));
-					pstmt.executeUpdate();
+					product.setProCategory(rs.getString("proCategory"));					
 
 				}
 			} finally {
