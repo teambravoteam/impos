@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <title>IMPOS</title>
   <link rel="stylesheet" href="../ms_incl/ms_init.css">
-  <link rel="stylesheet" href="./css/material_style.css">
+  <link rel="stylesheet" href="./css/edit_materia.css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <!-- content영역 -->
         <div id="content">
           <div class="content-info">
-            <h2 class="title">원재료검색</h2>
+            <h2 class="title">원재료수정</h2>
           </div>
           <div class="content-body">
             <div class="form-table">
@@ -31,7 +31,7 @@
                     <th>전체보기</th>
                     <td>
                       <button type="button" name="button" class="findall">
-                        <a href='<c:url value="/material/find_all_material"/>'>전체보기</a>
+                        <a href='<c:url value="/material/find_all_material_for_edit"/>'>전체보기</a>
                       </button>
                     </td>
                   </tr>
@@ -53,6 +53,7 @@
                     <th class="t1">No</th>
                     <th class="t2">재료명</th>
                     <th class="t3">남은재료</th>
+                    <th class="t4">수정</th>
                   </tr>
                 </thead>
               </table>
@@ -61,9 +62,19 @@
                   <tbody>
                       <c:forEach var="materialList" items="${materialList}" varStatus="status" >
 						<tr>
+						  <form class="" action="find_material_for_edit" method="post">
 							<td class="t1">${status.index + 1}</td>
-							<td class="t2">${fn:split(materialList, ',')[0]}</td>
-							<td class="t3">${fn:split(materialList, ',')[1]}</td>
+							<td class="t2">
+								${fn:split(materialList, ',')[0]}
+								<input type="hidden" name="name" value="${fn:split(materialList, ',')[0]}">
+							</td>
+							<td class="t3">
+								<input type="text" name="count" value="${fn:split(materialList, ',')[1]}">							
+							</td>
+							<td class="t4">
+							  <button type="submit" name="button">수정</button>
+							</td>
+						  </form>
 						</tr>
 					  </c:forEach>
                   </tbody>

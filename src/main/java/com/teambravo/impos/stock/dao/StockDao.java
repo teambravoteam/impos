@@ -94,23 +94,26 @@ public class StockDao {
 		String sql = null;
 		
 		System.out.println("Dao:" + stockCategory);
+		System.out.println(stockCategory.equals("cookie"));
 		
 		// product테이블이랑 join해야함
 		if (stockCategory.equals("cake")) {
 			System.out.println(stockCategory.equals("cake"));
 			sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-					+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode)"; 
+					+ "FROM Cake a INNER JOIN CakeStock b ON (a.proCode = b.scode)"; 
 		} else if (stockCategory.equals("cookie")) {
 			sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-					+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode)";
+					+ "FROM Cookie a INNER JOIN CookieStock b ON (a.proCode = b.scode)";
 		} else {
 			System.out.println("테이블이 없습니다.");
 		}
+		
 		
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
+			
 			try {
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(sql);
@@ -118,7 +121,6 @@ public class StockDao {
 				
 				while(rs.next()) {
 					SelectStock s = new SelectStock();
-					//join결과로 뽑을 컬럼명이랑 맞춰야함
 					s.setSid(rs.getInt("b.sid"));
 					s.setCategory(rs.getString("a.proCategory"));
 					s.setCode(rs.getString("a.proCode"));
@@ -126,6 +128,8 @@ public class StockDao {
 					s.setPrice(rs.getDouble("a.proPrice"));
 					s.setStock(rs.getInt("b.stock"));
 					selectStockList.add(s);
+					
+					System.out.println("s.getSid:" + s.getSid());
 				}
 			} finally {
 				ds.close(rs, pstmt, con);
@@ -186,10 +190,10 @@ public class StockDao {
 			//product테이블이랑 join해야한다.
 			if (category.equals("cake")) {
 				sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-						+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE b.sname=?";
+						+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE a.proName=?";
 			} else if (category.equals("cookie")) {
 				sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-						+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE b.sname=?";
+						+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE a.proName=?";
 			}
 			
 			SelectStock s = null;

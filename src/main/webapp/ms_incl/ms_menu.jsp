@@ -7,12 +7,12 @@
             <ul class="left-menu">
               <li><a href="#">상품관리</a></li>
               <li><a href="../stock/find_stock_list.jsp">재고관리</a></li>
-              <li><a href="../stock/find_stock_list.jsp">-재고검색</a></li>
-              <li><a href="../stock/edit_stock.jsp">-재고수정</a></li>
-              <li><a href="../material/find_mateiral_list.jsp">원재료관리</a></li>
-              <li><a href="../material/find_mateiral_list.jsp">-원재료검색</a></li>
-              <li><a href="#">-원재료수정</a></li>
-              <li><a href="../sale/find_sale_list.jsp">매출관리</a></li>
+              <li class="submenu"><a href="../stock/find_stock_list.jsp">-재고검색</a></li>
+              <li class="submenu"><a href="../stock/edit_stock.jsp" class="submenu">-재고수정</a></li>
+              <li><a href="../material/find_material_list.jsp">원재료관리</a></li>
+              <li class="submenu"><a href="../material/find_material_list.jsp" class="submenu">-원재료검색</a></li>
+              <li class="submenu"><a href="../material/edit_material.jsp" class="submenu">-원재료수정</a></li>
+              <li><a href="#">매출관리</a></li>
             </ul>
           </nav>
         </section>
