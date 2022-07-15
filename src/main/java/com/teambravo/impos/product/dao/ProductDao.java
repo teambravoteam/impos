@@ -26,6 +26,7 @@ public class ProductDao {
 			sql = "INSERT INTO Cake(proCode, proName, proPrice, proCategory)" + "VALUES(?, ?, ?, ?)";
 		}
 
+		
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;

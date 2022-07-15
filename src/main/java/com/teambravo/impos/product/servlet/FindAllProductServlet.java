@@ -3,7 +3,6 @@ package com.teambravo.impos.product.servlet;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +22,7 @@ public class FindAllProductServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+		
 		
 		productList = productService.findAllProduct();
 		request.setAttribute("productList", productList);
