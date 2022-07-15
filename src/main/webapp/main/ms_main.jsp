@@ -21,7 +21,27 @@
 				<!-- content영역 -->
 				<div id="content">
 					<div class="content-body">
-						<h1><span>IMPOS</span> 무인점포 포스기 시스템</h1>
+						<div>
+							<h1>IMPOS</h1>
+							<span>아임포스! 무인점포 포스기 시스템</span>
+						</div>
+						<br>
+						<div>
+							<h2>상품관리</h2>
+							<span>등록된 상품을 관리할 수 있습니다.</span>
+						</div>
+						<div>
+							<h2>재고관리</h2>
+							<span>현재 상품의 재고를 관리할 수 있습니다.</span>
+						</div>
+						<div>
+							<h2>원재료관리</h2>
+							<span>현재 원재료의 재고를 관리할 수 있습니다.</span>
+						</div>
+						<div>
+							<h2>매출관리</h2>
+							<span>점포의 매출 현황을 확인할 수 있습니다.</span>
+						</div>
 					</div>
 				</div>
 			</div>

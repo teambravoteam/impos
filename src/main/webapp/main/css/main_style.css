@@ -8,10 +8,6 @@
 	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap')
 	;
 
-@import
-	url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css')
-	;
-
 /*style적용할 때 body를 감싸는 wrap
 content영역을 다 감싸는 container 태그가 필요함*/
 body {
@@ -119,15 +115,16 @@ section#snb nav ul li a {
 #content {
 	width: 100%;
 	padding: 50px;
-	font-family: Pretendard;
 }
 
-#content .content-body h1 {
-	font-weight : 300;
+#content .content-body div h1 {
+	font-size: 45px;
+	text-decoration: underline;
 }
 
-#content .content-body h1 span {
-	font-weight : 500;
+#content .content-body div span {
+	display: block;
+	padding: 20px 0 20px 0;
 }
 
 /* footer */

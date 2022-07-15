@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+@import
+	url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css')
+	;
+
 * {
 	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
 		Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
@@ -21,6 +25,7 @@ li {
 
 a {
 	text-decoration: none;
+	color: black;
 }
 
 input {
@@ -31,4 +36,9 @@ input {
 button {
 	padding: 0;
 	margin: 0;
+}
+
+.logo {
+	color: deepskyblue;
+	font-weight: 700;
 }
