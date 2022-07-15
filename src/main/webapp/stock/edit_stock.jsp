@@ -16,8 +16,8 @@
 		<%@ include file="/ms_incl/ms_header.jsp"%>
 		<!-- main -->
 		<main>
-			<div id="container">
-				<!-- 왼쪽 메뉴 영역 -->
+		<div id="container">
+			<!-- 왼쪽 메뉴 영역 -->
 				<%@ include file="/ms_incl/ms_menu.jsp"%>
 				<!-- content영역 -->
 				<div id="content">
@@ -70,59 +70,37 @@
 								</thead>
 							</table>
 							<div class="tbl-content">
-								<table class="tbody">
-									<tbody>
-									<tr>
-										<form class="" action="index.html" method="post">
-											<td class="t1">1 <input type="hidden" name="1" value="1"></td>
-												<td class="t2">2</td>
-												<td class="t3">3</td>
-												<td class="t4">4</td>
-												<td class="t5">5</td>
-												<td class="t6"><input type="text" name="" value="1"></td>
-												<td class="t7">
-													<button type="submit" name="button">
-														<a href="#">수정</a>
-													</button>
-												</td>
-										</form>
-									</tr>
-										<c:forEach var="stockList" items="${stockList}" varStatus="status">
-											<tr>
-												<form class="" action="edit_stock" method="post">
-												<td class="t1">${status.index + 1}</td>
-												<td class="t2">${fn:split(stockList, ',')[1]} 
-													<input type="hidden" name="category" value="${fn:split(stockList, ',')[1]}">
-												</td>
-												<td class="t3">
-												${fn:split(stockList, ',')[2]} <input type="hidden" name="code"
-													value="${fn:split(stockList, ',')[2]}">
-												</td>
-												<td class="t4">${fn:split(stockList, ',')[3]} <input
-													type="hidden" name="name"
-													value="${fn:split(stockList, ',')[3]}">
-												</td>
-												<td class="t5">${fn:split(stockList, ',')[4]} <input
-													type="hidden" name="price"
-													value="${fn:split(stockList, ',')[4]}">
-												</td>
-												<td class="t6"><input type="text" name="stock"
-													value="${fn:split(stockList, ',')[5]}"></td>
-												<td class="t7">
-													<button type="submit" name="button">수정</button>
-												</td>
-												</form>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
-							</div>
-						</div>
+							<table class="tbody">
+							<tbody>
+							<c:forEach var="stockList" items="${stockList}" varStatus="status">
+								<tr>
+								 <form class="" action="edit_stock" method="post">
+									<td class="t1">${status.index + 1}</td>
+									<td class="t2">${fn:split(stockList, ',')[1]} 
+										<input type="hidden" name="category" value="${fn:split(stockList, ',')[1]}">
+									</td>
+									<td class="t3">
+									${fn:split(stockList, ',')[2]} <input type="hidden" name="code"
+										value="${fn:split(stockList, ',')[2]}">
+									</td>
+									<td class="t4">${fn:split(stockList, ',')[3]}</td>
+									<td class="t5">${fn:split(stockList, ',')[4]}</td>
+									<td class="t6"><input type="text" name="stock"
+										value="${fn:split(stockList, ',')[5]}"></td>
+									<td class="t7">
+									<button type="submit" name="button">수정</button>
+									</td>
+								 </form>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 					</div>
 				</div>
 			</div>
-
-		</main>
+			</div>
+		</div>
+	</main>
 
 
 		<!-- footer -->

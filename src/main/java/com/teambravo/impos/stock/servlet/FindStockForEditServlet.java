@@ -1,6 +1,7 @@
 package com.teambravo.impos.stock.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -28,33 +29,43 @@ public class FindStockForEditServlet extends HttpServlet {
 		
 		
 		// search가 null이면 카테고리별 검색
-		if (search == null) {
+		if (search == "") {
+			System.out.println("input에 값 없음");
 			List<SelectStock> stockList = stockService.findAllStock(category);
+			
 			if (stockList == null) {
 				//실패페이지로 이동
 				request.getRequestDispatcher("error_edit_stock.jsp");
 			}
+			
 			request.setAttribute("stockList", stockList);
 			request.getRequestDispatcher("edit_stock.jsp").forward(request, response);
 		}
 		
-		//serach가 null아니면 중첩문
-		if (search != null ) {
+		//search가 null아니면 중첩문
+		if (search != "") {
+			// 이름으로 검색
 			if (findtype.equals("name")) {
-				SelectStock stockList = stockService.findStockByName(category, search);
+				SelectStock stock = stockService.findStockByName(category, search);
 				
-				System.out.println(stockList);
+				List<SelectStock> stockList = new ArrayList<SelectStock>();
+				stockList.add(stock);
+				
 				if (stockList == null) {
 					//실패페이지로 이동
 					request.getRequestDispatcher("error_edit_stock.jsp");
 				}
+				
 				request.setAttribute("stockList", stockList);
 				request.getRequestDispatcher("edit_stock.jsp").forward(request, response);
-				
+			
+			// 코드로 검색
 			} else if (findtype.equals("code")) {
-				SelectStock stockList = stockService.findStockByCode(category, search);
+				SelectStock stock = stockService.findStockByCode(category, search);
 				
-				System.out.println(stockList);
+				List<SelectStock> stockList = new ArrayList<SelectStock>();
+				stockList.add(stock);
+				
 				if (stockList == null) {
 					//실패페이지로 이동
 					request.getRequestDispatcher("error_edit_stock.jsp");

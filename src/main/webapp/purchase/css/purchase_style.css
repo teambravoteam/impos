@@ -1,115 +1,195 @@
 @charset "UTF-8";
 
-body,ul,li,ol{
-  margin: 0;
-  padding: 0;
+body, ul, li, ol {
+	margin: 0;
+	padding: 0;
 }
 
-
-#main{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  /* background-color: rgba(190,113,135,1); */
+input {
+	border: 1px solid gray;
+	border-radius: 5px;
+	box-shadow: none;
+	font-size: 1em;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	box-shadow: none;
+	box-shadow: none;
 }
 
-#btn-box{
-  width: 320px;
-  height: 450px;
-  background: white;
-  border: 1px solid #f1f1f1;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+#main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	/* background-color: rgba(190,113,135,1); */
 }
 
-.startbtn{
-  width: 150px;
-  height: 43px;
-  background-color: #f1f1f1;
-  border: 1px solid #f1f1f1;
-  border-radius: 5px;
-}
-
-#cart{
-  display: block;
-  position: fixed;
-  bottom: 0;
-  left:250px; right: 0;
-  height: 300px;
-  background:#f0f0f0;
-}
-
-#cart .cart-btn-box{
-  margin: 0 auto;
-  float: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: cener;
-}
-
-aside{
-  background:#f2f2f2;
-  width: 300px;
-  height: 100%;
-}
-
-aside > ul{
-  
-}
-
-aside > ul > li {
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  width: 300px;
-  height: 150px;
-}
-
-
-#container {
-  display: flex;
-  height: calc(100vh); /*100% - header - footer*/
-}
-
-
-.items-wrap{
-	display:flex;
-	justify-content: space-around;
-}
-
-.items{
-	display:flex;
-	width:300px;
-	height:400px;
-	flex-direction:column;
-	align-items:center;
-	justify-content:space-around;
+#btn-box {
+	width: 320px;
+	height: 450px;
+	background: white;
 	border: 1px solid #f1f1f1;
 	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+
+#btn-box h4 {
+	font-weight: normal;
+}
+
+#btn-box form input {
+	cursor: pointer;
+}
+
+.startbtn {
+	width: 150px;
+	height: 43px;
+	background-color: #f1f1f1;
+	border: 1px solid #f1f1f1;
+	border-radius: 5px;
+}
+
+#cart {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 250px;
+	right: 0;
+	height: 300px;
+	padding: 15px;
+	background: #f0f0f0;
+}
+
+#cart .cart-btn-box {
+	margin: 0 auto;
+	float: right;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: cener;
+}
+
+#cart form input {
+	padding: 5px;
+}
+
+#cart form ul {
+	margin-top: 10px;
+}
+
+#cart form ul li {
+	margin: 0 auto;
+	padding: 5px 0 5px 0;
+	font-size: 15px;
+}
+
+#cart form ul li input {
+	border: none;
+}
+
+aside {
+	background: #f2f2f2;
+	width: 300px;
+	height: 100%;
+}
+
+aside>ul {
 	
 }
 
-.items > img{
+aside>ul>li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	height: 150px;
+}
+
+#container {
+	display: flex;
+	height: calc(100vh); /*100% - header - footer*/
+}
+
+.items-wrap {
+	display: flex;
+	justify-content: space-around;
+}
+
+.items {
+	display: flex;
+	width: 350px;
+	height: 400px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	border: 1px solid #f1f1f1;
+	border-radius: 5px;
+	background-color: aliceblue;
+}
+
+.items>img {
 	width: 180px;
 	height: 180px;
 	border-radius: 100%;
 }
 
-.items > .cart-btn{
+.items>.cart-btn {
 	width: 100px;
 	height: 43px;
 	border: 1px solid #f1f1f1;
 	border-radius: 5px;
-	background : white;	
+	background: white;
 }
 
+#addItemForm {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
 
-.close{
-	display:none;
+#addItemForm input {
+	border: none;
+	border-radius: 5px;
+	padding: 15px 0 15px 0;
+	text-align: center;
+	border-radius: 5px;
+}
+
+#addItemForm .proName {
+	flex: 0.5;
+	font-size: 25px;
+	font-weight: 500;
+	color: brown;
+	background-color: aliceblue;
+}
+
+#addItemForm .proCate {
+	flex: 0.5;
+	background-color: lightsteelblue;
+}
+
+#addItemForm .proCount {
+	position: relative;
+	width: 100px;
+	left: calc(50% - 50px);
+	margin: 15px 0 15px 0;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#addItemForm .proSubmit {
+	flex: 1;
+	background-color: lightblue;
+}
+
+.close {
+	display: none;
 }

@@ -9,7 +9,8 @@ import com.teambravo.impos.stock.domain.Stock;
 
 public class StockService {
 	
-	private StockDao stockDao;	
+	private StockDao stockDao;
+	
 	
 	public void addStockTable(String category, String code) {
 		if (!category.equals("coffee")) {

@@ -93,9 +93,12 @@ section#snb nav ul {
 section#snb nav ul li {
   border-bottom: 1px solid #eaeef3;
 }
+
+section#snb nav ul li.submenu {
+	background: #f2f4f7;
+}
 section#snb nav ul li a {
   color: #555;
-
   display: inline-block;
   width: 100%;
   line-height: 50px;
@@ -103,6 +106,7 @@ section#snb nav ul li a {
   box-sizing: border-box;
   padding-left: 50px;
 }
+
 
 /*content영역*/
 #content {

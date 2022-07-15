@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+수정완료되었습니다.
+<a href="">확인</a>
 </body>
 </html>
