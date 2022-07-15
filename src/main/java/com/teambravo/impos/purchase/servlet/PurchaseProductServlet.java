@@ -108,14 +108,21 @@ public class PurchaseProductServlet extends HttpServlet {
 		
 		
 		purchaseService.insertMoney(money);
-
-		purchaseService.PurchaseItem(cart);
-		cart.cleanCartList();
+		if(purchaseService.calMoney(cart)) {
+			purchaseService.PurchaseItem(cart);
+			cart.cleanCartList();
+			double balance = purchaseService.getBalance();
+			request.setAttribute("balance", balance);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("purchase_success.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			cart.cleanCartList();
+			double balance = purchaseService.getBalance();
+			request.setAttribute("balance", balance);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("purchase_failed.jsp");
+			dispatcher.forward(request, response);
+		}
 		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("start_purchase.jsp");
-		dispatcher.forward(request, response);
-
 	}
 
 }

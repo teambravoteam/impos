@@ -10,7 +10,7 @@ import com.teambravo.impos.purchase.domain.MenuList;
 
 public class PurchaseService {
 	private PurchaseDao purchaseDao = new PurchaseDao();
-	private Cart cart;
+//	private Cart cart;
 	private double money;
 	private double salesMoney;
 	
@@ -34,12 +34,16 @@ public class PurchaseService {
 	}
 
 	public void PurchaseItem(Cart cart) {
-		System.out.println("안에들어옴");
-		System.out.println(money);
-		for(MenuList menuList : cart.getCartList()) {
-			double listMoney = menuList.getProduct().getProPrice() * menuList.getCount();
-			salesMoney += listMoney;
-		}	
+		
+		System.out.println(cart.getCartList());
+//		
+//		for(MenuList menuList : cart.getCartList()) {
+//			
+//			double listMoney = menuList.getProduct().getProPrice() * menuList.getCount();
+//			salesMoney += listMoney;
+//		}	
+//		
+		
 		
 		if(money >= salesMoney) {
 			System.out.println("돈이 들어옴");
@@ -59,11 +63,29 @@ public class PurchaseService {
 			}
 		} else {
 			System.out.println("돈 없");
-		}
-		
+		}		
 	}
+	
+	
+	public boolean calMoney(Cart cart) {
+		for(MenuList menuList : cart.getCartList()) {
+			System.out.println(menuList.getCount() + " ++ " + menuList.getProduct().getProName());
+			double listMoney = menuList.getProduct().getProPrice() * menuList.getCount();
+			salesMoney += listMoney;
+		}	
+		if( this.money - salesMoney > 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public void insertMoney(double a) {
 		money += a;		
+	}
+
+	public void setMoney(int i) {
+		money = i;		
 	}
 	
 }
