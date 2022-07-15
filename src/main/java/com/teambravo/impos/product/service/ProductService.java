@@ -38,7 +38,12 @@ public class ProductService {
 			stockService.addStockTable(proCategory, proCode);
 		}
 	}
-
+	
+	// 상품수정
+	public void updateProduct(Product product) {
+		productDao.deleteProduct(product);
+	}
+	
 	// 상품삭제
 	public void deleteProduct(Product product) {
 		productDao.deleteProduct(product);
@@ -62,6 +67,7 @@ public class ProductService {
 
 		return allProductList;
 	}
+	
 
 	// 이름과 카테고리로 조회
 	public Product findProductByNameAndCategory(String name, String category) {
