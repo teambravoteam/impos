@@ -93,7 +93,7 @@
 				<div id="cart">
 					<form action="purchase_item.do" method="get">
 						보유 자산:
-						<input type="text" name="money">
+						<input type="text" name="money" value="0">
 						<input type="submit" value="구매하기">
 						<ul>
 							<c:forEach var="menuList" items="${cart.cartList}" varStatus="status">

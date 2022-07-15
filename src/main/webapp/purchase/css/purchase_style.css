@@ -20,11 +20,22 @@ input {
 
 #main {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
-	height: 100vh;
+	height: calc(100vh - 80px); /*100% - header*/
 	/* background-color: rgba(190,113,135,1); */
+}
+
+#main>h2 {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+#main>h3 {
+	margin: 20px 0 20px 0;
+	font-weight: normal;
 }
 
 #btn-box {
@@ -59,7 +70,7 @@ input {
 #cart {
 	display: block;
 	position: fixed;
-	bottom: 0;
+	bottom: 50px;
 	left: 250px;
 	right: 0;
 	height: 300px;
@@ -114,7 +125,7 @@ aside>ul>li {
 
 #container {
 	display: flex;
-	height: calc(100vh); /*100% - header - footer*/
+	height: 100%;
 }
 
 .items-wrap {
