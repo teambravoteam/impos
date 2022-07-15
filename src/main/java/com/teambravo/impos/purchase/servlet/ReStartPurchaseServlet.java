@@ -18,7 +18,7 @@ public class ReStartPurchaseServlet extends HttpServlet {
 	PurchaseService purchaseService = new PurchaseService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//돌아감
 		purchaseService.setMoney(0);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("start_purchase.jsp");
 		dispatcher.forward(request, response);

@@ -106,7 +106,7 @@ public class PurchaseProductServlet extends HttpServlet {
 			cart.addList(menu5);
 		}
 		
-		
+		//분기
 		purchaseService.insertMoney(money);
 		if(purchaseService.calMoney(cart)) {
 			purchaseService.PurchaseItem(cart);

@@ -20,8 +20,8 @@
       </div>
 </header>
   <main id="main">
-  	<h3> 결제에 실패하셨습니다 </h3>
-  	<h3> 고객님의 해당 잔금은 ${balance} 입니다 구입 감사합니다</h3>
+  		<h3> 결제에 실패하셨습니다 </h3>
+  	<h3> 고객님의 해당 잔금은 ${balance} 입니다 구입 감사합니다 처음으로 돌아갑니다</h3>
     <div id="btn-box">    
       <img src="./image/purchaseIcon.png" alt="purchaseIcon">
       <form action="restart_purchase.do" method="get">
