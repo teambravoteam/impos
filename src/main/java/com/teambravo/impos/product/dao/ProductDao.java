@@ -173,8 +173,7 @@ public class ProductDao {
 					product.setProName(rs.getString("proName"));
 					product.setProPrice(rs.getDouble("proPrice"));
 					product.setProCategory(rs.getString("proCategory"));
-					pstmt.executeUpdate();
-
+					
 				}
 			} finally {
 				ds.close(rs, pstmt, con);

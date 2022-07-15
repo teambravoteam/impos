@@ -49,11 +49,13 @@ public class PurchaseService {
 			money = money - salesMoney;
 			System.out.println(money + "계산한돈");
 			purchaseDao.purchaseProductInsertSales(cart);
+			// 반복 리셋팅
 			for(MenuList menuList : cart.getCartList()) {
 				if(menuList.getProduct().getProCategory() == "coffee") {
 					//purchaseDao.purchaseProductDeleteCoffeeMaterial(menuList);
 					for(int i=0; i<menuList.getCount(); i++) {
 						materialService.saleSubtractVolume(menuList.getProduct().getProName());
+						System.out.println("p.s: " + menuList.getProduct().getProName());
 					}
 				}  
 				if(menuList.getProduct().getProCategory() == "cake") {

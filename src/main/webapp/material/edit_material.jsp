@@ -35,7 +35,7 @@
                       </button>
                     </td>
                   </tr>
-              <form class="seachform" action="/stock/FindAllStock" method="post">
+              <form class="seachform" action="find_material_for_edit" method="post">
                   <tr>
                     <th>검색어</th>
                     <td>
@@ -62,7 +62,7 @@
                   <tbody>
                       <c:forEach var="materialList" items="${materialList}" varStatus="status" >
 						<tr>
-						  <form class="" action="find_material_for_edit" method="post">
+						  <form class="" action="edit_material" method="post">
 							<td class="t1">${status.index + 1}</td>
 							<td class="t2">
 								${fn:split(materialList, ',')[0]}

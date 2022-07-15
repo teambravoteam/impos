@@ -9,8 +9,8 @@
 <body>
 <script type="text/javascript">
 	
-	alert("음수를 입력할 수 없습니다.");
-	document.location.href="edit_stock.jsp";
+	alert("일치하는 정보가 없습니다.");
+	document.location.href="edit_material.jsp";
 
 </script>
 </body>

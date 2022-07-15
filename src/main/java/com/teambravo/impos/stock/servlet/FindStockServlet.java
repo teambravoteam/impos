@@ -38,7 +38,7 @@ public class FindStockServlet extends HttpServlet {
 			
 			if (stockList == null) {
 				//실패페이지로 이동
-				request.getRequestDispatcher("error_edit_stock.jsp");
+				request.getRequestDispatcher("error_find_stock.jsp");
 			}
 			request.setAttribute("stockList", stockList);
 			request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
@@ -50,13 +50,16 @@ public class FindStockServlet extends HttpServlet {
 			if (findtype.equals("name")) {
 				SelectStock stock = stockService.findStockByName(category, search);
 				
+				if (stock == null) {
+					request.getRequestDispatcher("error_find_stock.jsp").forward(request, response);					
+				}
 				// jsp에서 forEach문을 돌리기 대문에 arrayList에 담아야한다.
 				List<SelectStock> stockList = new ArrayList<SelectStock>();
 				stockList.add(stock);
 				
 				if (stockList == null) {
 					//실패페이지로 이동
-					request.getRequestDispatcher("error_edit_stock.jsp");
+					request.getRequestDispatcher("error_find_stock.jsp").forward(request, response);
 				}
 				
 				request.setAttribute("stockList", stockList);
@@ -66,12 +69,17 @@ public class FindStockServlet extends HttpServlet {
 			} else if (findtype.equals("code")) {
 				SelectStock stock = stockService.findStockByCode(category, search);
 				
+				if (stock == null) {
+					//실패페이지로 이동
+					request.getRequestDispatcher("error_find_stock.jsp").forward(request, response);
+				}
+				
 				List<SelectStock> stockList = new ArrayList<SelectStock>();
 				stockList.add(stock);
 				
 				if (stockList == null) {
 					//실패페이지로 이동
-					request.getRequestDispatcher("error_edit_stock.jsp");
+					request.getRequestDispatcher("error_find_stock.jsp").forward(request, response);
 				}
 				
 				request.setAttribute("stockList", stockList);

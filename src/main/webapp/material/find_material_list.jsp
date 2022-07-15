@@ -35,7 +35,7 @@
                       </button>
                     </td>
                   </tr>
-              <form class="seachform" action="/stock/FindAllStock" method="post">
+              <form class="searchform" action="find_material" method="post">
                   <tr>
                     <th>검색어</th>
                     <td>

@@ -25,10 +25,16 @@ public class EditStockServlet extends HttpServlet {
 		String stockbefore = request.getParameter("stock");
 		int stock = Integer.parseInt(stockbefore);
 		
-		// 유효성 검증
+		// 재고를 음수로 저장하면 error
+		if (stock < 0 || stockbefore == "") {
+			request.getRequestDispatcher("error_edit_stock.jsp").forward(request, response);
+		}
 		
-		stockService.editStock(category, code, stock);
-		request.getRequestDispatcher("success_edit_stock.jsp");
+		if (!(stock<0)) {
+			stockService.editStock(category, code, stock);			
+		}
+		
+		request.getRequestDispatcher("success_edit_stock.jsp").forward(request, response);
 		
 		
 	}

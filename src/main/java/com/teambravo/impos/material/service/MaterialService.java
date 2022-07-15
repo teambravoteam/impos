@@ -13,7 +13,12 @@ public class MaterialService {
 	// 결제완료 시 재고반영시킬때 카테고리가 커피라면 이걸 호출 아니면 stock호출
 	//원재료 찾기 하나 만들고그걸 가져와서 원래 원재료빼기 차감할만큼을 만들기
 	public void saleSubtractVolume(String proName) {
+		materialDao = new MaterialDao();
+		
+		System.out.println("proName: " + proName);
+		
 		if (proName.equals("아메리카노")) {
+			System.out.println("아메리카노 구매");
 			Material firstMaterial = findMaterialByName("원두");
 			double finalVolume = firstMaterial.getMaterialVolume() - 10; //현재 원재료 양 - 아메리카노 제조시 사용되는 양
 			editVolume("원두", finalVolume);
