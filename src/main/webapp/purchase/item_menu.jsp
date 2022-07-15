@@ -15,14 +15,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<div id="wrap">
-		<header>
-			<div class="headarea">
-				<span class="logo"> <a href='<c:url value="/purchase/start_purchase.jsp"/>'>IMPOS</a>
-				</span>
-			</div>
-		</header>
+	<div class="wrap">
+		<!-- header -->
+		<%@ include file="/ms_incl/ms_purchase_header.jsp"%>
 		<main>
 			<div id="container">
 				<section id="snb">
