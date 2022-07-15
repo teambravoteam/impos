@@ -39,9 +39,9 @@
 									<td>
 										<form class="searchform" action="find_CategorySale.do" method="post">
 											<select name="saCategory" class="category">
-												<option value="커피">coffee</option>
-												<option value="쿠키">cookie</option>
-												<option value="케이크">cake</option>
+												<option value="coffee">coffee</option>
+												<option value="cookie">cookie</option>
+												<option value="cake">cake</option>
 											</select>
 											<button type="submit" name="button" class="searchbtn">검색</button>
 										</form>

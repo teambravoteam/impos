@@ -18,7 +18,7 @@ INSERT INTO Sale (saCode, saName, saPrice, saCategory, saCount) VALUES ('202', '
 INSERT INTO Sale (saCode, saName, saPrice, saCategory, saCount) VALUES ('302', '얼그레이케이크', '10000', '케이크', '33');
 INSERT INTO Sale (saCode, saName, saPrice, saCategory, saCount) VALUES ('303', '카푸치노케이크', '13000', '케이크', '3');
 
-UPDATE Sale SET regDate='2023-07-13 10:34:58.0' WHERE saId=7;
+UPDATE Sale SET saCategory='cake' WHERE saCategory='케이크';
 
 SELECT * FROM Sale WHERE MONTH(regDate) = '6';
 
