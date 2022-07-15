@@ -1,0 +1,26 @@
+CREATE TABLE Coffee (
+	pid			    BIGINT		  PRIMARY KEY AUTO_INCREMENT,
+	proCode		  VARCHAR(20)	NOT NULL,
+	proName		  VARCHAR(20)	NOT NULL,
+	proPrice	  DOUBLE		  NOT NULL,
+	proCategory VARCHAR(20)	NOT NULL
+) AUTO_INCREMENT = 1;
+
+CREATE TABLE Cookie (
+	pid		    	BIGINT	  	PRIMARY KEY AUTO_INCREMENT,
+	proCode	  	VARCHAR(20)	NOT NULL,
+	proName	  	VARCHAR(20)	NOT NULL,
+	proPrice  	DOUBLE		  NOT NULL,
+	proCategory VARCHAR(20) NOT NULL
+) AUTO_INCREMENT = 101;
+
+CREATE TABLE Cake (
+	pid		    	BIGINT		  PRIMARY KEY AUTO_INCREMENT,
+	proCode	  	VARCHAR(20)	NOT NULL,
+	proName	  	VARCHAR(20)	NOT NULL,
+	proPrice  	DOUBLE	  	NOT NULL,
+	proCategory VARCHAR(20) NOT NULL
+) AUTO_INCREMENT = 201;
+
+SELECT * FROM Coffee;
+INSERT INTO Coffee(proCode,proName,proPrice,proCategory) VALUES("2","아메리카노",1500,"coffee");
