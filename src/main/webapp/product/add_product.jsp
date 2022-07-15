@@ -1,48 +1,80 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="java.net.URLEncoder"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="../ms_incl/ms_init.css">
+<link rel="stylesheet" href="./css/product_style.css">
+
 </head>
 <body>
-  <form action="add_product" method="post">
-    <table>
-      <tr>
-        <td>카테고리목록</td>
-        <td>
-          <div class="input-group">
-            <select class="procategory" name="procategory">
-              <option value="coffee">coffee</option>
-              <option value="cake">cake</option>
-              <option value="cookie">cookie</option>
-             </select>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>상품명</td>
-        <td><input type="text" class="proname" name="proname" size="10"></td>
-      </tr>
-      <tr>
-        <td>가격</td>
-        <td><input type="number" class="proprice" name="proprice" size="10"></td>
-      </tr>
-      <tr>
-        <td>상품이미지</td>
-        <td><input type="file" class="proimg" name="proimg" size="10"></td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <button type="button" name="">취소</button>
-          <button type="submit" name="">저장</button>
-          <button type="button" name="">목록</button>
-        </td>
-      </tr>
-    </table>
-  </form>
+	<div class="wrap">
+		<!-- header -->
+		<%@ include file="/ms_incl/ms_header.jsp"%>
+		<!-- main -->
+		<main>
+			<div id="container">
+				<!-- 왼쪽 메뉴 영역 -->
+				<%@ include file="/ms_incl/ms_menu.jsp"%>
+				<!-- content영역 -->
+				<div id="content">
+					<div class="content-info">
+						<h2 class="title">상품등록</h2>
+					</div>
+					<div class="content-body">
+						<div class="form-table">
+							<table class="search-table">
+								<tr>
+									<th>카테고리</th>
+									<td>
+										<form class="searchform" action="add_product" method="post">
+											<select name="procategory" class="procategory">
+												<option value="coffee">coffee</option>
+												<option value="cookie">cookie</option>
+												<option value="cake">cake</option>
+											</select>
+									</td>
+								</tr>
+								<tr>
+									<th>상품명</th>
+									<td><input type="text" name="proname" class="searchinput">
+									</td>
+								</tr>
+								<tr>
+									<th>가격</th>
+									<td><input type="number" name="proprice"
+										class="searchinput"></td>
+								</tr>
+								<tr>
+									<th>상품이미지</th>
+									<td><input type="file" name="?" class="searchinput">
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<button type="button"
+											onclick="location.href='../product/find_product_list.jsp'">취소</button>
+										<button type="submit">저장</button>
+										<button type="button"
+											onclick="location.href='../product/find_product_list.jsp'">목록</button>
+
+										</form>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- footer -->
+		<%@ include file="/ms_incl/ms_footer.jsp"%>
+	</div>
 </body>
 </html>

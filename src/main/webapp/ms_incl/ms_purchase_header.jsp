@@ -7,14 +7,9 @@
 			<span>IMPOS</span>
 		</a>
 		<div class="gnb">
-			<ul>
-				<li>
-					<p>OOO님</p>
-				</li>
-				<li class="mypage"><a href="#">MY PAGE</a></li>
-				<li class="logout"><a href="#">로그아웃</a></li>
-			</ul>
-
+			<a href="../manager/login.jsp">
+				<img alt="설정" src="../purchase/image/settings_black.svg">
+			</a>
 		</div>
 	</div>
 </header>

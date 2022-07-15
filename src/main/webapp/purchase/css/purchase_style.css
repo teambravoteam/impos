@@ -18,6 +18,11 @@ input {
 	box-shadow: none;
 }
 
+.headarea .gnb {
+	float: right;
+	top: 25%;
+}
+
 #main {
 	display: flex;
 	flex-direction: column;

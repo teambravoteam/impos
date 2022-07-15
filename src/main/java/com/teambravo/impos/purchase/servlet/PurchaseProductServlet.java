@@ -111,6 +111,7 @@ public class PurchaseProductServlet extends HttpServlet {
 		if(purchaseService.calMoney(cart)) {
 			purchaseService.PurchaseItem(cart);
 			cart.cleanCartList();
+			
 			double balance = purchaseService.getBalance();
 			request.setAttribute("balance", balance);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("purchase_success.jsp");
