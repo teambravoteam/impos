@@ -145,10 +145,10 @@ public class StockDao {
 		//product테이블이랑 join해야한다.
 		if (category.equals("cake")) {
 			sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-					+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE scode=?";
+					+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE b.scode=?";
 		} else if (category.equals("cookie")) {
 			sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-					+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE scode=?";
+					+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE b.scode=?";
 		}
 		SelectStock s = null;
 		try {
@@ -186,11 +186,12 @@ public class StockDao {
 			//product테이블이랑 join해야한다.
 			if (category.equals("cake")) {
 				sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-						+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE sname=?";
+						+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE b.sname=?";
 			} else if (category.equals("cookie")) {
 				sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-						+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE sname=?";
+						+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE b.sname=?";
 			}
+			
 			SelectStock s = null;
 			try {
 				Connection con = null;

@@ -14,23 +14,31 @@ import com.teambravo.impos.stock.domain.SelectStock;
 import com.teambravo.impos.stock.domain.Stock;
 import com.teambravo.impos.stock.service.StockService;
 
-@WebServlet("/stock/FindAllStock")
-public class FindAllStockServlet extends HttpServlet {
+@WebServlet("/stock/find_all_stock_for_edit")
+public class FindAllStockForEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 	private StockService stockService = new StockService();
 	
 	private static List<SelectStock> stockList;
 	
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+    }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
 		stockList = stockService.allStockList();
 		request.setAttribute("stockList", stockList);
 		
-		request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
+		request.getRequestDispatcher("edit_stock.jsp").forward(request, response);
 	}
 
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
+		
+	}
 
 }

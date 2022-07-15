@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.teambravo.impos.stock.domain.SelectStock;
 import com.teambravo.impos.stock.service.StockService;
 
-@WebServlet("/stock/find_stock")
-public class FindStockServlet extends HttpServlet {
+@WebServlet("/stock/find_stock_for_edit")
+public class FindStockForEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private StockService stockService = new StockService();
@@ -35,7 +35,7 @@ public class FindStockServlet extends HttpServlet {
 				request.getRequestDispatcher("error_edit_stock.jsp");
 			}
 			request.setAttribute("stockList", stockList);
-			request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
+			request.getRequestDispatcher("edit_stock.jsp").forward(request, response);
 		}
 		
 		//serach가 null아니면 중첩문
@@ -49,7 +49,7 @@ public class FindStockServlet extends HttpServlet {
 					request.getRequestDispatcher("error_edit_stock.jsp");
 				}
 				request.setAttribute("stockList", stockList);
-				request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
+				request.getRequestDispatcher("edit_stock.jsp").forward(request, response);
 				
 			} else if (findtype.equals("code")) {
 				SelectStock stockList = stockService.findStockByCode(category, search);
@@ -60,7 +60,7 @@ public class FindStockServlet extends HttpServlet {
 					request.getRequestDispatcher("error_edit_stock.jsp");
 				}
 				request.setAttribute("stockList", stockList);
-				request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
+				request.getRequestDispatcher("edit_stock.jsp").forward(request, response);
 			}
 		}
 		
