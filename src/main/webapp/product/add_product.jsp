@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="../ms_incl/ms_init.css">
 <link rel="stylesheet" href="./css/product_style.css">
 
-
 </head>
 <body>
 	<div class="wrap">

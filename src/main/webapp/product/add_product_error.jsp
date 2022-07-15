@@ -11,7 +11,6 @@
 
 </head>
 <body>
-
 	<div class="wrap">
 		<!-- header -->
 		<%@ include file="/ms_incl/ms_header.jsp"%>

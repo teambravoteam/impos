@@ -25,7 +25,6 @@ public class ProductService {
 			}
 		}
 		
-		
 		Product product = new Product();
 		product.setProName(proName);
 		product.setProPrice(proPrice);

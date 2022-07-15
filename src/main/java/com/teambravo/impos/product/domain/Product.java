@@ -21,7 +21,6 @@ public class Product {
 		
 	}
 
-	
 	public String getProCode() {
 		return proCode;
 	}

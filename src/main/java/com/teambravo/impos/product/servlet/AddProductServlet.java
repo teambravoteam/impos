@@ -24,7 +24,6 @@ public class AddProductServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 	}
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

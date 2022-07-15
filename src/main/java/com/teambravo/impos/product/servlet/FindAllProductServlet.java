@@ -30,5 +30,4 @@ public class FindAllProductServlet extends HttpServlet {
 		request.getRequestDispatcher("find_product_list.jsp").forward(request, response);
 	}
 
-
 }

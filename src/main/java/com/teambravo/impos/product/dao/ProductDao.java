@@ -25,8 +25,7 @@ public class ProductDao {
 		} else if (product.getProCategory().equals("cake")) {
 			sql = "INSERT INTO Cake(proCode, proName, proPrice, proCategory)" + "VALUES(?, ?, ?, ?)";
 		}
-
-		
+	
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
