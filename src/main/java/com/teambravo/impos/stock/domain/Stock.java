@@ -32,6 +32,6 @@ public class Stock {
 	
 	@Override
 	public String toString() {
-		return "Stock [scode=" + scode + ", scategory=" + scategory + ", stock=" + stock + "]";
+		return "scode=" + scode + ", scategory=" + scategory + ", stock=" + stock;
 	}
 }
