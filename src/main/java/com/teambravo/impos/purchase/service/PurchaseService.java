@@ -55,7 +55,7 @@ public class PurchaseService {
 					for(int i=0; i<menuList.getCount(); i++) {
 						materialService.saleSubtractVolume(menuList.getProduct().getProName());
 					}
-				}
+				}  
 				if(menuList.getProduct().getProCategory() == "cake") {
 					//purchaseDao.purchaseProductDeleteCakeStock(menuList);
 					for(int i=0; i<menuList.getCount(); i++) {
