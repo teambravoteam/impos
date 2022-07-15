@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+찾는 상품이 없습니다.
 </body>
 </html>

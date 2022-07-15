@@ -7,7 +7,11 @@
             <ul class="left-menu">
               <li><a href="#">상품관리</a></li>
               <li><a href="#">재고관리</a></li>
+              <li><a href="#">-재고검색</a></li>
+              <li><a href="#">-재고수정</a></li>
               <li><a href="#">원재료관리</a></li>
+              <li><a href="#">-원재료검색</a></li>
+              <li><a href="#">-원재료수정</a></li>
               <li><a href="#">매출관리</a></li>
             </ul>
           </nav>

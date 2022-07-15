@@ -31,7 +31,7 @@
                     <th>전체보기</th>
                     <td>
                       <button type="button" name="button" class="findall">
-                        <a href="#">전체보기</a>
+                        <a href='<c:url value="/stock/FindAllStock"/>'>전체보기</a>
                       </button>
                     </td>
                   </tr>
@@ -40,7 +40,6 @@
                     <th>카테고리</th>
                     <td>
                       <select name="category" class="category">
-                        <option value="all">전체</option>
                         <option value="coffee">coffee</option>
                         <option value="cookie">cookie</option>
                         <option value="cake">cake</option>
@@ -51,7 +50,6 @@
                     <th>검색어</th>
                     <td>
                       <select name="findtype" class="findtype">
-                        <option value="all">전체</option>
                         <option value="name">상품이름</option>
                         <option value="code">상품코드</option>
                       </select>
@@ -66,7 +64,7 @@
               <table class="thead">
                 <thead>
                   <tr>
-                    <th class="t1">id</th>
+                    <th class="t1">No</th>
                     <th class="t2">카테고리</th>
                     <th class="t3">상품코드</th>
                     <th class="t4">상품명</th>
@@ -78,30 +76,16 @@
               <div class="tbl-content">
                 <table class="tbody">
                   <tbody>
-                      <tr>
-                        <td class="t1">1</td>
-                        <td class="t2">2</td>
-                        <td class="t3">3</td>
-                        <td class="t4">4</td>
-                        <td class="t5">5</td>
-                        <td class="t6">6</td>
-                      </tr>
-                      <tr>
-                        <td class="t1">1</td>
-                        <td class="t2">2</td>
-                        <td class="t3">3</td>
-                        <td class="t4">4</td>
-                        <td class="t5">5</td>
-                        <td class="t6">6</td>
-                      </tr>
-                      <tr>
-                        <td class="t1">1</td>
-                        <td class="t2">2</td>
-                        <td class="t3">3</td>
-                        <td class="t4">4</td>
-                        <td class="t5">5</td>
-                        <td class="t6">6</td>
-                      </tr>
+                      <c:forEach var="stockList" items="${stockList}">
+						<tr>
+							<td class="t1">${fn:split(stockList, ',')[0]}</td>
+							<td class="t2">${fn:split(stockList, ',')[1]}</td>
+							<td class="t3">${fn:split(stockList, ',')[2]}</td>
+							<td class="t4">${fn:split(stockList, ',')[3]}</td>
+							<td class="t5">${fn:split(stockList, ',')[4]}</td>
+							<td class="t6">${fn:split(stockList, ',')[5]}</td>
+						</tr>
+					  </c:forEach>
                   </tbody>
                 </table>
               </div>

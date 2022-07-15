@@ -27,14 +27,40 @@ public class FindStockServlet extends HttpServlet {
 		String search = request.getParameter("search");
 		
 		
-		if (!category.equals("all") && search==null) {
+		// search가 null이면 카테고리별 검색
+		if (search == null) {
 			List<SelectStock> stockList = stockService.findAllStock(category);
+			
+			request.setAttribute("stockList", stockList);
+			request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
 		}
 		
-		// category==전체, findtype==전체, search==null 일 경우 findAllStock
-		// category가 전체가 아니고 search==null이면 카테고리별 findall
-		// findtype이 name이면 이름으로 재고 검색
-		// findtype이 code면 코드로 재고검색
+		//serach가 null아니면 중첩문
+		if (search != null ) {
+			if (findtype.equals("name")) {
+				SelectStock stockList = stockService.findStockByName(category, search);
+				
+				if (stockList == null) {
+					//실패페이지로 이동
+					request.getRequestDispatcher("error_edit_stock.jsp");
+				}
+				request.setAttribute("stockList", stockList);
+				request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
+				
+			} else if (findtype.equals("code")) {
+				SelectStock stockList = stockService.findStockByCode(category, search);
+				if (stockList == null) {
+					//실패페이지로 이동
+					request.getRequestDispatcher("error_edit_stock.jsp");
+				}
+				request.setAttribute("stockList", stockList);
+				request.getRequestDispatcher("find_stock_list.jsp").forward(request, response);
+			}
+		}
+		
+
+		
+		
 
 	}
 
