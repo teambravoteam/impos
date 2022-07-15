@@ -3,16 +3,21 @@ package com.teambravo.impos.purchase.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.teambravo.impos.material.service.MaterialService;
 import com.teambravo.impos.product.domain.Product;
 import com.teambravo.impos.purchase.dao.PurchaseDao;
 import com.teambravo.impos.purchase.domain.Cart;
 import com.teambravo.impos.purchase.domain.MenuList;
+import com.teambravo.impos.stock.dao.StockDao;
+import com.teambravo.impos.stock.service.StockService;
 
 public class PurchaseService {
 	private PurchaseDao purchaseDao = new PurchaseDao();
 //	private Cart cart;
 	private static double money;
 	private static double salesMoney;
+	private MaterialService materialService = new MaterialService();
+	private StockService stockService = new StockService();
 	
 	public double getBalance() {
 		return money;		
@@ -36,13 +41,7 @@ public class PurchaseService {
 	public void PurchaseItem(Cart cart) {
 		
 		System.out.println(cart.getCartList());
-//		
-//		for(MenuList menuList : cart.getCartList()) {
-//			
-//			double listMoney = menuList.getProduct().getProPrice() * menuList.getCount();
-//			salesMoney += listMoney;
-//		}	
-//		
+
 		
 		
 		if(money >= salesMoney) {
@@ -52,13 +51,22 @@ public class PurchaseService {
 			purchaseDao.purchaseProductInsertSales(cart);
 			for(MenuList menuList : cart.getCartList()) {
 				if(menuList.getProduct().getProCategory() == "coffee") {
-					purchaseDao.purchaseProductDeleteCoffeeMaterial(menuList);
+					//purchaseDao.purchaseProductDeleteCoffeeMaterial(menuList);
+					for(int i=0; i<menuList.getCount(); i++) {
+						materialService.saleSubtractVolume(menuList.getProduct().getProName());
+					}
 				}
 				if(menuList.getProduct().getProCategory() == "cake") {
-					purchaseDao.purchaseProductDeleteCakeStock(menuList);
+					//purchaseDao.purchaseProductDeleteCakeStock(menuList);
+					for(int i=0; i<menuList.getCount(); i++) {
+						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
+					}
 				}
 				if(menuList.getProduct().getProCategory() == "cookie") {
-					purchaseDao.purchaseProductDeleteCookieStock(menuList);
+					//purchaseDao.purchaseProductDeleteCookieStock(menuList);
+					for(int i=0; i<menuList.getCount(); i++) {
+						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
+					}
 				}
 			}
 		} else {
