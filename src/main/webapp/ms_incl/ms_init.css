@@ -1,27 +1,34 @@
 @charset "UTF-8";
-html,body{
-  height: 100%;
+
+* {
+	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+		Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+		'Noto Sans KR', 'Malgun Gothic', sans-serif;
 }
 
-html,body,ul,li,h1,h2,h3,h4,h5,h6{
-  margin: 0;
-  padding: 0;
+html, body {
+	height: 100%;
 }
 
-li{
-  list-style: none;
+html, body, ul, li, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 input {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 button {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }

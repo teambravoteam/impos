@@ -12,7 +12,7 @@
               <li><a href="../material/find_mateiral_list.jsp">원재료관리</a></li>
               <li><a href="../material/find_mateiral_list.jsp">-원재료검색</a></li>
               <li><a href="#">-원재료수정</a></li>
-              <li><a href="#">매출관리</a></li>
+              <li><a href="../sale/find_sale_list.jsp">매출관리</a></li>
             </ul>
           </nav>
         </section>
