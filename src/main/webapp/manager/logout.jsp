@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 </body>
 <script type="text/javascript">
 	
-	alert("가입완료");
+	alert("로그아웃 되었습니다");
 	document.location.href="login.jsp";
 
 </script>

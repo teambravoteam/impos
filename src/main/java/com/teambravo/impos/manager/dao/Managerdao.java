@@ -61,10 +61,6 @@ public class Managerdao {
 					user.setPassswd(rs.getString("passwd"));
 					user.setArea(rs.getString("area"));
 				}
-				
-				if (user.getUserId().equals(userId)) {
-					
-				}
 			
 				
 			} finally {
@@ -78,5 +74,7 @@ public class Managerdao {
 		return user;
 		
 	}
+	
+	
 	
 }
