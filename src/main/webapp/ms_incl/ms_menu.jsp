@@ -5,9 +5,7 @@
         <section id="snb">
           <nav class="nav">
             <ul class="left-menu">
-              <li><a href="../product/find_product_list.jsp">상품관리</a></li>
-              <li><a href="../product/find_product_list.jsp">-상품검색</a></li>
-              <li><a href="../product/add_product.jsp">-상품등록</a></li>
+              <li><a href="#">상품관리</a></li>
               <li><a href="../stock/find_stock_list.jsp">재고관리</a></li>
               <li class="submenu"><a href="../stock/find_stock_list.jsp">-재고검색</a></li>
               <li class="submenu"><a href="../stock/edit_stock.jsp" class="submenu">-재고수정</a></li>
@@ -18,4 +16,3 @@
             </ul>
           </nav>
         </section>
-        

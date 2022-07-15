@@ -34,7 +34,6 @@ public class AddManagerServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String passwd = request.getParameter("passwd");
 		String area = request.getParameter("area");
-		
 
 		// 한개라도 입력 안했을시 안한 부분을 리스트에 저장
 		List<String> errorMsgs = new ArrayList<>();
@@ -55,7 +54,7 @@ public class AddManagerServlet extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		if (errorMsgs.size() > 0) {
 			request.setAttribute("errorMsgs", errorMsgs);
-			dispatcher = request.getRequestDispatcher("error.jsp");
+			dispatcher = request.getRequestDispatcher("adderror.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
@@ -72,9 +71,7 @@ public class AddManagerServlet extends HttpServlet {
 
 		dispatcher = request.getRequestDispatcher("success.jsp");
 		dispatcher.forward(request, response);
-		
 
 	}
-	
 
 }

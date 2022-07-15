@@ -11,6 +11,7 @@ public class Managerdomain {
 	
 	
 	
+	
 	public String getUserId() {
 		return userId;
 	}
