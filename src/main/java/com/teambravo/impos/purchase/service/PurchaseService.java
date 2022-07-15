@@ -11,8 +11,8 @@ import com.teambravo.impos.purchase.domain.MenuList;
 public class PurchaseService {
 	private PurchaseDao purchaseDao = new PurchaseDao();
 //	private Cart cart;
-	private double money;
-	private double salesMoney;
+	private static double money;
+	private static double salesMoney;
 	
 	public double getBalance() {
 		return money;		
@@ -84,8 +84,12 @@ public class PurchaseService {
 		money += a;		
 	}
 
-	public void setMoney(int i) {
+	public void setMoney(double i) {
 		money = i;		
 	}
+	public void setSalesMoney(double i) {
+		salesMoney = i;		
+	}
+	
 	
 }

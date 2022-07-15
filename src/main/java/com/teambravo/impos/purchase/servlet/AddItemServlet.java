@@ -15,39 +15,34 @@ import com.teambravo.impos.product.service.ProductService;
 import com.teambravo.impos.purchase.domain.Cart;
 import com.teambravo.impos.purchase.domain.MenuList;
 
-
 @WebServlet("/purchase/addItem.do")
 public class AddItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ProductService productService = new ProductService();
 	Cart cart = Cart.getCart();
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		List<Product> coffeeList = productService.findProduct("coffee");
 		List<Product> cakeList = productService.findProduct("cake");
 		List<Product> cookieList = productService.findProduct("cookie");
-		
-		
+
 		request.setAttribute("coffeeList", coffeeList);
 		request.setAttribute("cakeList", cakeList);
 		request.setAttribute("cookieList", cookieList);
-		
-		
-		
+
 		String itemname = request.getParameter("proName");
 		String itemcate = request.getParameter("proCate");
+		System.out.println(request.getParameter("proCount"));
 		int count = Integer.parseInt(request.getParameter("proCount"));
 		Product p = productService.findProductByNameAndCategory(itemname, itemcate);
-		MenuList menu = new MenuList(p,count);
+		MenuList menu = new MenuList(p, count);
 		cart.addList(menu);
 		request.setAttribute("cart", cart);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("item_menu.jsp");
 		dispatcher.forward(request, response);
-		
-		
-		
+
 	}
 
 }
