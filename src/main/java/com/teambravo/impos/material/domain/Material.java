@@ -18,6 +18,10 @@ public class Material {
 	public void setMaterialVolume(double materialVolume) {
 		this.materialVolume = materialVolume;
 	}
+	@Override
+	public String toString() {
+		return materialName + "," + materialVolume;
+	}
 	
 
 }
