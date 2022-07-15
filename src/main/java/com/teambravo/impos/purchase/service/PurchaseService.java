@@ -43,7 +43,7 @@ public class PurchaseService {
 		System.out.println(cart.getCartList());
 
 		
-		
+		  
 		if(money >= salesMoney) {
 			System.out.println("돈이 들어옴");
 			money = money - salesMoney;
