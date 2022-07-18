@@ -15,6 +15,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
+
+
 	<div class="wrap">
 		<!-- header -->
 		<%@ include file="/ms_incl/ms_purchase_header.jsp"%>

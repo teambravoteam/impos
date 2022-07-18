@@ -5,6 +5,8 @@
 	<div class="headarea">
 		<a class="logo" href='/'>
 			<span>IMPOS</span>
+			
+			
 		</a>
 		<div class="gnb">
 			<a href="../manager/login.jsp">
