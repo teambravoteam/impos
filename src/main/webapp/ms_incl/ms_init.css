@@ -21,6 +21,7 @@ html, body, ul, li, h1, h2, h3, h4, h5, h6 {
 
 li {
 	list-style: none;
+	z-index: 5;
 }
 
 a {
@@ -39,6 +40,10 @@ button {
 }
 
 .logo {
-	color: deepskyblue;
+	color: #3f5ec4;
 	font-weight: 700;
+}
+
+.submenu {
+	background: #f2f4f7;
 }
