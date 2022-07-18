@@ -25,7 +25,7 @@ public class ProductDao {
 		} else if (product.getProCategory().equals("cake")) {
 			sql = "INSERT INTO Cake(proCode, proName, proPrice, proCategory)" + "VALUES(?, ?, ?, ?)";
 		}
-	
+
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -47,16 +47,16 @@ public class ProductDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	// 상품수정
 	public void updateProduct(Product product) {
 		String sql = null;
 		System.out.println(product.getProCategory());
 		if (product.getProCategory().equals("coffee")) {
 			System.out.println("coffeeee");
-			
+
 			sql = "UPDATE Coffee SET proName=?, proPrice=?, proCategory=? WHERE proCode=?";
 		} else if (product.getProCategory().equals("cookie")) {
 			System.out.println("cookieeeeee");
@@ -187,7 +187,6 @@ public class ProductDao {
 					product.setProName(rs.getString("proName"));
 					product.setProPrice(rs.getDouble("proPrice"));
 					product.setProCategory(rs.getString("proCategory"));
-					pstmt.executeUpdate();
 
 				}
 			} finally {
