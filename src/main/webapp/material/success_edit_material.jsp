@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script type="text/javascript">
+	
+	alert("수정이 완료되었습니다.");
+	document.location.href="edit_material.jsp";
 
+</script>
 </body>
 </html>

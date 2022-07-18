@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	
 	alert("수정완료되었습니다.");
-	document.location.href="edit_product.jsp";
+	document.location.href="edit_stock.jsp";
 
 </script>
 </body>
