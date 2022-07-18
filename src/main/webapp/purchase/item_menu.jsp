@@ -60,11 +60,22 @@
 						<c:forEach var="proItem" items="${cakeList}">
 							<div class="items">
 								<img src="./image/${proItem.proName}.jpg">
-								<form action="addItem.do" method="get">
+								<form action="addItem.do" method="get" id="addItemForm">
 									<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
 									<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
-									<input type="text" class="proCount" name="proCount">
-									<input type="submit" value="장바구니 넣기">
+									<select class="proCount" name="proCount" form="addItemForm">
+										<option value="1">1개</option>
+										<option value="2">2개</option>
+										<option value="3">3개</option>
+										<option value="4">4개</option>
+										<option value="5">5개</option>
+										<option value="6">6개</option>
+										<option value="7">7개</option>
+										<option value="8">8개</option>
+										<option value="9">9개</option>
+										<option value="10">10개</option>
+									</select>
+									<input class="proSubmit" type="submit" value="장바구니 넣기">
 								</form>
 
 							</div>
@@ -75,12 +86,24 @@
 						<c:forEach var="proItem" items="${cookieList}">
 							<div class="items">
 								<img src="./image/${proItem.proName}.jpg">
-								<form action="addItem.do" method="get">
+								<form action="addItem.do" method="get" id="addItemForm">
 									<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
 									<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
-									<input type="text" class="proCount" name="proCount">
-									<input type="submit" value="장바구니 넣기">
+									<select class="proCount" name="proCount" form="addItemForm">
+										<option value="1">1개</option>
+										<option value="2">2개</option>
+										<option value="3">3개</option>
+										<option value="4">4개</option>
+										<option value="5">5개</option>
+										<option value="6">6개</option>
+										<option value="7">7개</option>
+										<option value="8">8개</option>
+										<option value="9">9개</option>
+										<option value="10">10개</option>
+									</select>
+									<input class="proSubmit" type="submit" value="장바구니 넣기">
 								</form>
+
 							</div>
 						</c:forEach>
 					</div>
