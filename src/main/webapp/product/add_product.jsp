@@ -53,7 +53,7 @@
 								</tr>
 								<tr>
 									<th>상품이미지</th>
-									<td><input type="file" name="?" class="searchinput">
+									<td><input type="file" name="proimage" class="searchinput">
 									</td>
 								</tr>
 								<tr>
