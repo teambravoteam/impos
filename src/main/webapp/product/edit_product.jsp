@@ -1,0 +1,114 @@
+<%@ page language="java" import="java.net.URLEncoder"
+	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IMPOS</title>
+<link rel="stylesheet" href="../ms_incl/ms_init.css">
+<link rel="stylesheet" href="./css/product_style.css">
+</head>
+<body>
+	<div class="wrap">
+		<!-- header -->
+		<%@ include file="/ms_incl/ms_header.jsp"%>
+		<!-- main -->
+		<main>
+		<div id="container">
+			<!-- 왼쪽 메뉴 영역 -->
+				<%@ include file="/ms_incl/ms_menu.jsp"%>
+				<!-- content영역 -->
+				<div id="content">
+					<div class="content-info">
+						<h2 class="title">상품수정</h2>
+					</div>
+					<div class="content-body">
+						<div class="form-table">
+							<table class="search-table">
+								<tr>
+									<th>전체보기</th>
+									<td>
+										<button type="button" name="button" class="findall">
+											<a href='<c:url value="/product/find_all_product_for_edit"/>'>전체보기</a>
+										</button>
+									</td>
+								</tr>
+								<form class="searchform" action="find_product_for_edit" method="post">
+									<tr>
+										<th>카테고리</th>
+										<td><select name="category" class="category">
+												<option value="coffee">coffee</option>
+												<option value="cookie">cookie</option>
+												<option value="cake">cake</option>
+										</select></td>
+									</tr>
+									<tr>
+										<th>검색어</th>
+										<td><select name="findtype" class="findtype">
+												<option value="name">상품이름</option>
+												<option value="code">상품코드</option>
+										</select> <input type="text" name="search" class="searchinput">
+											<button type="submit" name="button" class="searchbtn">검색</button>
+										</td>
+									</tr>
+								</form>
+							</table>
+						</div>
+						<div class="content-table">
+							<table class="thead">
+								<thead>
+									<tr>
+										<th class="t1">No</th>
+										<th class="t2">카테고리</th>
+										<th class="t3">상품코드</th>
+										<th class="t4">상품명</th>
+										<th class="t5">가격</th>
+										<th class="t6">수정/삭제</th>
+									</tr>
+								</thead>
+							</table>
+							<div class="tbl-content">
+							<table class="tbody">
+							<tbody>
+							<c:forEach var="productList" items="${productList}" varStatus="status">
+								<tr>
+								 <form class="" action="edit_product" method="post">
+									<td class="t1">${status.index + 1}</td>
+									<td class="t2">
+										<input type="text" name="category" value="${fn:split(productList, ',')[0]}">
+									</td>
+									<td class="t3">${fn:split(productList, ',')[1]}
+										<input type="hidden" name="code" value="${fn:split(productList, ',')[1]}">
+									</td>
+									<td class="t4">
+										<input type="text" name="name" value="${fn:split(productList, ',')[2]}">
+									</td>
+									<td class="t5">
+										<input type="text" name="price" value="${fn:split(productList, ',')[3]}">
+									</td>
+									<td class="t6">
+									<button type="submit" name="button" value="edit">수정</button>
+									<button type="submit" name="button" value="delete">삭제</button>
+									</td>
+								 </form>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</main>
+
+
+		<!-- footer -->
+		<%@ include file="/ms_incl/ms_footer.jsp"%>
+	</div>
+
+</body>
+
+</html>
