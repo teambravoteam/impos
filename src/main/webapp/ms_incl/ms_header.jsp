@@ -9,7 +9,12 @@
 			<ul>
 				<li>
 					<p>
-						<c:out value="${name}님" />
+						<c:if test="${empty name}">
+							<c:redirect url="../manager/error.jsp" />
+						</c:if>
+						<c:if test="${not empty name}">
+							<c:out value="${name}님" />
+						</c:if>
 					</p>
 				</li>
 				<li class="mypage"><a href='<c:url value="/manager/mypage.jsp" />'>마이페이지</a></li>

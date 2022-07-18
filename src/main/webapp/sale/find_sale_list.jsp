@@ -135,39 +135,7 @@
 									</tr>
 								</thead>
 							</table>
-							<div class="tbl-content">
-								<table class="tbody">
-									<tbody>
-										<tr>
-											<td class="t1">1</td>
-											<td class="t2">2</td>
-											<td class="t3">3</td>
-											<td class="t4">4</td>
-											<td class="t5">5</td>
-											<td class="t6">6</td>
-											<td class="t7">7</td>
-										</tr>
-										<tr>
-											<td class="t1">1</td>
-											<td class="t2">2</td>
-											<td class="t3">3</td>
-											<td class="t4">4</td>
-											<td class="t5">5</td>
-											<td class="t6">6</td>
-											<td class="t7">7</td>
-										</tr>
-										<tr>
-											<td class="t1">1</td>
-											<td class="t2">2</td>
-											<td class="t3">3</td>
-											<td class="t4">4</td>
-											<td class="t5">5</td>
-											<td class="t6">6</td>
-											<td class="t7">7</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
+							<div class="tbl-content"></div>
 						</div>
 					</div>
 				</div>

@@ -23,6 +23,8 @@
 					<li class="submenu" style="border-bottom: 0px;"><a href="../material/find_material_list.jsp" style="background: #f2f4f7;">- 원재료검색</a></li>
 					<li class="submenu" style="border-bottom: 0px;"><a href="../material/edit_material.jsp" style="background: #f2f4f7;">- 원재료수정</a></li>
 				</ul></li>
+				
+				
 			<li style="border-bottom: 2px solid #eaeef3;"><a href="../sale/find_sale_list.jsp" style="background: #e1e7f0;">매출관리</a></li>
 		</ul>
 	</nav>
