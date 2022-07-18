@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 
+
 <link rel="stylesheet" href="../ms_incl/ms_init.css">
 <link rel="stylesheet" href="../ms_incl/ms_style.css">
 <link rel="stylesheet" href="./css/purchase_style.css">
@@ -15,25 +16,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
-
-
 	<div class="wrap">
 		<!-- header -->
 		<%@ include file="/ms_incl/ms_purchase_header.jsp"%>
-		<main>
+		<main style="height:100vh">
 			<div id="container">
-				<section id="snb">
+				<section id="snb"style=" position: fixed; top: 80px; bottom: 0; left: 0;  right: calc(100% - 250px);">
 					<nav class="nav">
-						<ul class="left-menu">
+						<ul class="left-menu" style="margin-top:0px;">
 							<li class="coffee-a"><a href="#">Coffee</a></li>
 							<li class="cake-a"><a href="#">Cake</a></li>
 							<li class="cookie-a"><a href="#">Cookie</a></li>
 						</ul>
 					</nav>
 				</section>
-				<div id="content">
+				
+				<div id="content-wrap">
+						<div id="content" style="margin-top:80px; margin-left:300px;">
 					<div class="items-wrap coffee-me close">
 						<c:forEach var="proItem" items="${coffeeList}">
 							<div class="items">
@@ -41,15 +40,12 @@
 								<form action="addItem.do" method="get" id="addItemForm">
 									<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
 									<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
-									<input type="text" class="proCount" name="proCount"/>
-									
+									<input type="text" class="proCount" name="proCount"/>									
 									<input class="proSubmit" type="submit" value="장바구니 넣기">
 								</form>
-
 							</div>
 						</c:forEach>
 					</div>
-
 					<div class="items-wrap cake-me close">
 						<c:forEach var="proItem" items="${cakeList}">
 							<div class="items">
@@ -57,8 +53,7 @@
 								<form action="addItem.do" method="get" id="addItemForm">
 									<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
 									<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
-									<input type="text" class="proCount" name="proCount"/>
-									
+									<input type="text" class="proCount" name="proCount"/>									
 									<input class="proSubmit" type="submit" value="장바구니 넣기">
 								</form>
 
@@ -94,10 +89,8 @@
 							</c:forEach>
 						</ul>
 					</form>
-
+				</div>				
 				</div>
-
-
 			</div>
 		</main>
 	</div>

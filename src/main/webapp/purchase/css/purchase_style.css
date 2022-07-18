@@ -29,7 +29,7 @@ input {
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
-	height: calc(100vh - 80px); /*100% - header*/
+	height: calc(100vh); /*100% - header*/
 	/* background-color: rgba(190,113,135,1); */
 }
 
@@ -75,7 +75,7 @@ input {
 #cart {
 	display: block;
 	position: fixed;
-	bottom: 50px;
+	bottom: 0px;
 	left: 250px;
 	right: 0;
 	height: 300px;
@@ -134,8 +134,12 @@ aside>ul>li {
 }
 
 .items-wrap {
-	display: flex;
-	justify-content: space-around;
+	width: 1200px;
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-row-gap: 30px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
 .items {
