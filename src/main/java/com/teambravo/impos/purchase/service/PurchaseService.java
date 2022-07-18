@@ -49,26 +49,46 @@ public class PurchaseService {
 			money = money - salesMoney;
 			System.out.println(money + "계산한돈");
 			purchaseDao.purchaseProductInsertSales(cart);
-			for(MenuList menuList : cart.getCartList()) {
-				if(menuList.getProduct().getProCategory() == "coffee") {
-					//purchaseDao.purchaseProductDeleteCoffeeMaterial(menuList);
-					for(int i=0; i<menuList.getCount(); i++) {
-						materialService.saleSubtractVolume(menuList.getProduct().getProName());
-					}
-				}  
-				if(menuList.getProduct().getProCategory() == "cake") {
-					//purchaseDao.purchaseProductDeleteCakeStock(menuList);
-					for(int i=0; i<menuList.getCount(); i++) {
-						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
+			
+			for(int i = 0; i<cart.getCartList().size(); i++) {
+				if(cart.getCartList().get(i).getProduct().getProCategory() == "coffee") {
+					for(int j = 0; j<cart.getCartList().get(i).getCount(); j++) {
+						materialService.saleSubtractVolume(cart.getCartList().get(i).getProduct().getProName());
 					}
 				}
-				if(menuList.getProduct().getProCategory() == "cookie") {
-					//purchaseDao.purchaseProductDeleteCookieStock(menuList);
-					for(int i=0; i<menuList.getCount(); i++) {
-						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
+				
+				if(cart.getCartList().get(i).getProduct().getProCategory() == "coffee") {
+					for(int j = 0; j<cart.getCartList().get(i).getCount(); j++) {
+						stockService.minusStock(cart.getCartList().get(i).getProduct().getProCategory(), cart.getCartList().get(i).getProduct().getProCode(), 1 );
+					}
+				}
+				
+				if(cart.getCartList().get(i).getProduct().getProCategory() == "coffee") {
+					for(int j = 0; j<cart.getCartList().get(i).getCount(); j++) {
+						stockService.minusStock(cart.getCartList().get(i).getProduct().getProCategory(), cart.getCartList().get(i).getProduct().getProCode(), 1 );
 					}
 				}
 			}
+//			for(MenuList menuList : cart.getCartList()) {
+//				if(menuList.getProduct().getProCategory() == "coffee") {
+//					//purchaseDao.purchaseProductDeleteCoffeeMaterial(menuList);
+//					for(int i=0; i<menuList.getCount(); i++) {
+//						materialService.saleSubtractVolume(menuList.getProduct().getProName());
+//					}
+//				}  
+//				if(menuList.getProduct().getProCategory() == "cake") {
+//					//purchaseDao.purchaseProductDeleteCakeStock(menuList);
+//					for(int i=0; i<menuList.getCount(); i++) {
+//						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
+//					}
+//				}
+//				if(menuList.getProduct().getProCategory() == "cookie") {
+//					//purchaseDao.purchaseProductDeleteCookieStock(menuList);
+//					for(int i=0; i<menuList.getCount(); i++) {
+//						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
+//					}
+//				}
+//			}
 		} else {
 			System.out.println("돈 없");
 		}		
