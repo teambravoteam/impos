@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,7 @@ public class AddProductServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 	}
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -35,23 +36,29 @@ public class AddProductServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
-		String directory = "C:\\teambravo\\impos\\src\\main\\webapp\\purchase\\image";
-		int sizeLimit = 100*1024*1024;
+
+		String path = "/purchase/image";
+		ServletContext context = request.getSession().getServletContext();
+		String realPath = context.getRealPath(path);
+
+		String directory = realPath;
+
+		int sizeLimit = 100 * 1024 * 1024;
 		String encode = "UTF-8";
-		
-		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, encode, new DefaultFileRenamePolicy());
-		//httprequest, 디렉토리위치, 파일크기제한, encoding방식, 동일파일명에 대한 처리
-		
-		String fileName = multi.getFilesystemName("proimage"); //파일이름가져오기
+
+		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, encode,
+				new DefaultFileRenamePolicy());
+		// httprequest, 디렉토리위치, 파일크기제한, encoding방식, 동일파일명에 대한 처리
+
+		String fileName = multi.getFilesystemName("proimage"); // 파일이름가져오기
 		System.out.println(fileName);
-		
+
 		// 1. 폼 파라메터 얻기
 		String proName = multi.getParameter("proname");
 		String proPriceString = multi.getParameter("proprice");
 		String proCategory = multi.getParameter("procategory");
 		double proPrice = Double.parseDouble(proPriceString);
-		
+
 		RequestDispatcher dispatcher = null;
 		try {
 			if (request.getParameter("proprice") != null) {
@@ -66,7 +73,7 @@ public class AddProductServlet extends HttpServlet {
 				errorMsgs.add("물품가격은 필수입력 정보입니다.");
 			}
 			request.setAttribute("errorMsgs", errorMsgs);
-			
+
 			if (errorMsgs.size() > 0) {
 				dispatcher = request.getRequestDispatcher("add_product_error.jsp");
 				dispatcher.forward(request, response);
@@ -83,7 +90,7 @@ public class AddProductServlet extends HttpServlet {
 		System.out.println("2:" + proPrice);
 		product.setProPrice(proPrice);
 		request.setAttribute("product", product);
-		
+
 		// 4. NextPage
 		dispatcher = request.getRequestDispatcher("add_product_success.jsp");
 		dispatcher.forward(request, response);

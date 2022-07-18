@@ -31,8 +31,8 @@
 					</nav>
 				</section>
 				
-				<div id="content-wrap">
-						<div id="content" style="margin-top:80px; margin-left:300px;">
+				<div id="content-wrap" style="overflow-x: hidden;">
+						<div id="content" style="margin-top:80px; margin-left:300px; padding-bottom: 450px;">
 					<div class="items-wrap coffee-me close">
 						<c:forEach var="proItem" items="${coffeeList}">
 							<div class="items">
