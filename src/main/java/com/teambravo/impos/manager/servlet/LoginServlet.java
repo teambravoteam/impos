@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("passwd", user.getPasswd());
 		session.setAttribute("area", user.getArea());
 		System.out.println(user.getName());
-		response.sendRedirect("/impos/stock/find_stock_list.jsp");
+		response.sendRedirect("/impos/main/ms_main.jsp");
 		
 		
 	}

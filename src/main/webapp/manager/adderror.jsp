@@ -25,7 +25,10 @@
 				</ul>
 			</c:if>
 		</div>
-		<a href='<c:url value="/manager/add_manager1.jsp" />'>돌아가기</a>
+		<div class="bt">
+			<a href='<c:url value="/manager/add_manager1.jsp" />'>돌아가기</a>
+		</div>
+		
 	</div>
 </body>
 <style>
@@ -56,10 +59,9 @@ a {
 .headarea .logo {
 	display: block;
 	position: absolute;
-	left: calc(100% - 53%);
+	left: 50%;
+	transform: translateX(-50%);
 	top: 20px;
-	width: 60px;
-	height: 30px;
 	font-family: 'Secular One', sans-serif;
 	font-size: 30px;
 }
@@ -84,5 +86,20 @@ a {
 	margin-top: calc(100% - 55%);
 	text-align: center;
 }
+
+#content-wrapper .bt {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#content-wrapper .bt a {
+	padding: 10px 40px;
+	background: lightgrey;
+	border: 1px solid gray;
+	color: black;
+}
+
+
 </style>
 </html>

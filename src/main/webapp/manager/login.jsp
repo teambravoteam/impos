@@ -57,10 +57,9 @@ a {
 .headarea .logo {
 	display: block;
 	position: absolute;
-	left: calc( 100% - 53% );
+	left: 50%;
+	transform: translateX(-50%);
 	top: 20px;
-	width: 60px;
-	height: 30px;
 	font-family: 'Secular One', sans-serif;
 	font-size: 30px;
 }
