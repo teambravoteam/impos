@@ -3,10 +3,8 @@
 
 <header>
 	<div class="headarea">
-		<a class="logo" href='/'>
+		<a class="logo" href='../purchase/start_purchase.jsp'>
 			<span>IMPOS</span>
-			
-			
 		</a>
 		<div class="gnb">
 			<a href="../manager/login.jsp">
