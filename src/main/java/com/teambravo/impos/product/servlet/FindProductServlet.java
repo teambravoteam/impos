@@ -62,10 +62,11 @@ public class FindProductServlet extends HttpServlet {
 				
 				if (productList == null) {
 					request.getRequestDispatcher("error_find_product.jsp").forward(request, response);					
+				} else {
+					request.setAttribute("productList", productList);
+					request.getRequestDispatcher("find_product_list.jsp").forward(request, response);					
 				}
 				
-				request.setAttribute("productList", productList);
-				request.getRequestDispatcher("find_product_list.jsp").forward(request, response);					
 				
 				
 			
@@ -82,10 +83,11 @@ public class FindProductServlet extends HttpServlet {
 				
 				if (productList == null) {
 					request.getRequestDispatcher("error_find_product.jsp").forward(request, response);										
+				} else {
+					request.setAttribute("productList", productList);
+					request.getRequestDispatcher("find_product_list.jsp").forward(request, response);					
 				}
 				
-				request.setAttribute("productList", productList);
-				request.getRequestDispatcher("find_product_list.jsp").forward(request, response);
 			}
 		}
 	}
