@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <header>
-	<div class="headarea">
+	<div class="headarea" style="position: fixed;">
 		<a class="logo" href='../purchase/start_purchase.jsp'>
 			<span>IMPOS</span>
 		</a>
