@@ -89,6 +89,9 @@
 							</c:forEach>
 						</ul>
 					</form>
+					<form action="minus_item.do" method="get">
+						<input type="submit" name="cleanitem" value="삭제하기">
+					</form>	
 				</div>				
 				</div>
 			</div>
