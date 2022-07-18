@@ -13,7 +13,7 @@ public class ProductService {
 	private StockService stockService = new StockService();
 	
 	// 상품등록
-	public void addProductTable(String proName, double proPrice, String proCategory) {
+	public void addProductTable(String proName, double proPrice, String proCategory, String fileName) {
 		String proCode = null;
 		
 		while(true) {
@@ -30,6 +30,7 @@ public class ProductService {
 		product.setProPrice(proPrice);
 		product.setProCategory(proCategory);
 		product.setProCode(proCode);
+		product.setProImage(fileName);
 		
 		productDao.addProduct(product);
 		

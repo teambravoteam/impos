@@ -55,14 +55,14 @@ public class StockDao {
 	}
 	
 	// 상품 삭제 시 재고테이블에서도 삭제
-	public void deleteStockTable(Stock stock) {
+	public void deleteStockTable(String category, String code) {
 		// 카테고리 값을 받아와서 if문으로 해당 테이블에서 값 삭제하기
+		System.out.println("delete호출");
 		String sql = null;
-		String stockCategory = stock.getScategory();
 		
-		if (stockCategory.equals("cake")) {
+		if (category.equals("cake")) {
 			sql = "DELETE FROM CakeStock WHERE scode = ?";	 
-		} else if (stockCategory.equals("cookie")) {
+		} else if (category.equals("cookie")) {
 			sql = "DELETE FROM CookieStock WHERE scode = ?";	 
 		}
 		
@@ -73,7 +73,7 @@ public class StockDao {
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(sql);
 				
-				pstmt.setString(1, stock.getScode());
+				pstmt.setString(1, code);
 				pstmt.executeUpdate();
 				
 				System.out.println("DELETE COMPELTE!");

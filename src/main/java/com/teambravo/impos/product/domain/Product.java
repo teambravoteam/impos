@@ -16,6 +16,7 @@ public class Product {
 	protected String proName;//상품명
 	protected double proPrice;//가격
 	protected String proCategory;//카테고리
+	protected String proImage;//이미지 이름
 	
 	public Product() {
 		
@@ -52,9 +53,19 @@ public class Product {
 	public void setProCategory(String proCategory) {
 		this.proCategory = proCategory;
 	}
-	
+
+	public String getProImage() {
+		return proImage;
+	}
+
+	public void setProImage(String proImage) {
+		this.proImage = proImage;
+	}
+
 	@Override
-    public String toString() {
-        return proCategory + "," + proCode + "," + proName + "," + proPrice;
-    }
+	public String toString() {
+		return proCategory + "," + proCode + "," + proName + "," + proPrice + "," + proImage;
+	} 
+	
+	
 }

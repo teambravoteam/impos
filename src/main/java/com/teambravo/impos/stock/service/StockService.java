@@ -66,4 +66,9 @@ public class StockService {
 		stockDao = new StockDao();
 		return stockDao.findStockByName(category, name);
 	}
+	
+	// 상품삭제 시 재고테이블에서도 삭제하기
+	public void deleteStockTable(String category, String code) {
+		stockDao.deleteStockTable(category, code);
+	}
 }

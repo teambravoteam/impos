@@ -6,6 +6,11 @@
 /*style적용할 때 body를 감싸는 wrap
 content영역을 다 감싸는 container 태그가 필요함*/
 
+/*스크롤바 없애기*/
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: 'Noto Sans KR', sans-serif;
 }
@@ -100,13 +105,16 @@ section#snb nav ul li.submenu {
 
 section#snb nav ul li a {
   color: #555;
-
   display: inline-block;
   width: 100%;
   line-height: 50px;
   font-size: 18px;
   box-sizing: border-box;
   padding-left: 50px;
+}
+
+section#snb nav ul li a.submenu {
+	padding-left: 80px;
 }
 
 /*content영역*/
@@ -267,7 +275,6 @@ border-top: none;
 .tbl-content table td:nth-child(6) {
   width: 16%;
 }
-
 
 
 /* footer */

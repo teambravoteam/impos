@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.teambravo.impos.product.domain.Product;
 import com.teambravo.impos.product.service.ProductService;
 
@@ -33,18 +35,27 @@ public class AddProductServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		
+		String directory = "C:\\teambravo\\impos\\src\\main\\webapp\\purchase\\image";
+		int sizeLimit = 100*1024*1024;
+		String encode = "UTF-8";
+		
+		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, encode, new DefaultFileRenamePolicy());
+		//httprequest, 디렉토리위치, 파일크기제한, encoding방식, 동일파일명에 대한 처리
+		
+		String fileName = multi.getFilesystemName("proimage"); //파일이름가져오기
+		System.out.println(fileName);
+		
 		// 1. 폼 파라메터 얻기
-		String proName = request.getParameter("proname");
-		String proPriceString = request.getParameter("proprice");
-		String proCategory = request.getParameter("procategory");
-		double proPrice = 0;
+		String proName = multi.getParameter("proname");
+		String proPriceString = multi.getParameter("proprice");
+		String proCategory = multi.getParameter("procategory");
+		double proPrice = Double.parseDouble(proPriceString);
 		
 		RequestDispatcher dispatcher = null;
 		try {
 			if (request.getParameter("proprice") != null) {
-				proPrice = Integer.parseInt(proPriceString);
-				System.out.println("더블로 변환됨!");
+				System.out.println("proPriceString" + proPriceString);
 			}
 		} catch (Exception e) {
 			// 2. 유효성 검증 및 변환
@@ -65,10 +76,11 @@ public class AddProductServlet extends HttpServlet {
 		}
 
 		// 3. 비즈니스 서비스 호출(상품등록)
-		productService.addProductTable(proName, proPrice, proCategory);
+		productService.addProductTable(proName, proPrice, proCategory, fileName);
 		Product product = new Product();
 		product.setProName(proName);
 		product.setProCategory(proCategory);
+		System.out.println("2:" + proPrice);
 		product.setProPrice(proPrice);
 		request.setAttribute("product", product);
 		

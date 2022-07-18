@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-수정완료되었습니다.
-<a href="">확인</a>
+<script type="text/javascript">
+	
+	alert("수정완료되었습니다.");
+	document.location.href="edit_product.jsp";
+
+</script>
 </body>
 </html>

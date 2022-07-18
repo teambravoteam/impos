@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-찾는 상품이 없습니다.
+<script type="text/javascript">
+	
+	alert("음수나 빈값을 입력할 수 없습니다.");
+	document.location.href="edit_product.jsp";
+
+</script>
 </body>
 </html>

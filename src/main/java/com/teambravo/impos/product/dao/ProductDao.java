@@ -18,14 +18,15 @@ public class ProductDao {
 	// 상품등록
 	public void addProduct(Product product) {
 		String sql = null;
+		System.out.println("product.getProCategory() : " + product.getProCategory());
 		if (product.getProCategory().equals("coffee")) {
-			sql = "INSERT INTO Coffee(proCode, proName, proPrice, proCategory)" + "VALUES(?, ?, ?, ?)";
+			sql = "INSERT INTO Coffee(proCode, proName, proPrice, proCategory, proImage)" + "VALUES(?, ?, ?, ?, ?)";
 		} else if (product.getProCategory().equals("cookie")) {
-			sql = "INSERT INTO Cookie(proCode, proName, proPrice, proCategory)" + "VALUES(?, ?, ?, ?)";
+			sql = "INSERT INTO Cookie(proCode, proName, proPrice, proCategory, proImage)" + "VALUES(?, ?, ?, ?, ?)";
 		} else if (product.getProCategory().equals("cake")) {
-			sql = "INSERT INTO Cake(proCode, proName, proPrice, proCategory)" + "VALUES(?, ?, ?, ?)";
+			sql = "INSERT INTO Cake(proCode, proName, proPrice, proCategory, proImage)" + "VALUES(?, ?, ?, ?, ?)";
 		}
-
+	
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -37,6 +38,8 @@ public class ProductDao {
 				pstmt.setString(2, product.getProName());
 				pstmt.setDouble(3, product.getProPrice());
 				pstmt.setString(4, product.getProCategory());
+				pstmt.setString(5, product.getProImage());
+				
 				pstmt.executeUpdate();
 
 				System.out.println(product.getProCategory());
@@ -47,16 +50,16 @@ public class ProductDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 	}
-
+	
 	// 상품수정
 	public void updateProduct(Product product) {
 		String sql = null;
 		System.out.println(product.getProCategory());
 		if (product.getProCategory().equals("coffee")) {
 			System.out.println("coffeeee");
-
+			
 			sql = "UPDATE Coffee SET proName=?, proPrice=?, proCategory=? WHERE proCode=?";
 		} else if (product.getProCategory().equals("cookie")) {
 			System.out.println("cookieeeeee");
@@ -147,6 +150,7 @@ public class ProductDao {
 					p.setProName(rs.getString("proName"));
 					p.setProPrice(rs.getDouble("proPrice"));
 					p.setProCategory(rs.getString("proCategory"));
+					p.setProImage(rs.getString("proImage"));
 					productList.add(p);
 				}
 			} finally {
@@ -187,6 +191,7 @@ public class ProductDao {
 					product.setProName(rs.getString("proName"));
 					product.setProPrice(rs.getDouble("proPrice"));
 					product.setProCategory(rs.getString("proCategory"));
+					pstmt.executeUpdate();
 
 				}
 			} finally {

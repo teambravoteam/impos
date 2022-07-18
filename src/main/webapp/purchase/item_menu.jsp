@@ -19,77 +19,77 @@
 	<div class="wrap">
 		<!-- header -->
 		<%@ include file="/ms_incl/ms_purchase_header.jsp"%>
-		<main style="height: 100vh">
+		<main style="height:100vh">
 			<div id="container">
-				<section id="snb" style="position: fixed; top: 80px; bottom: 0; left: 0; right: calc(100% - 250px); z-index: 20;">
+				<section id="snb"style=" position: fixed; top: 80px; bottom: 0; left: 0;  right: calc(100% - 250px);">
 					<nav class="nav">
-						<ul class="left-menu" style="margin-top: 0px;">
+						<ul class="left-menu" style="margin-top:0px;">
 							<li class="coffee-a"><a href="#">Coffee</a></li>
 							<li class="cake-a"><a href="#">Cake</a></li>
 							<li class="cookie-a"><a href="#">Cookie</a></li>
 						</ul>
 					</nav>
 				</section>
-
+				
 				<div id="content-wrap">
-					<div id="content" style="position: relative; left: 125px; width: auto; height: calc(100vh + 800px); margin: 80px auto;">
-						<div class="items-wrap coffee-me close">
-							<c:forEach var="proItem" items="${coffeeList}">
-								<div class="items">
-									<img src="./image/${proItem.proName}.jpg">
-									<form action="addItem.do" method="get" id="addItemForm">
-										<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
-										<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
-										<input type="text" class="proCount" name="proCount" />
-										<input class="proSubmit" type="submit" value="장바구니 넣기">
-									</form>
-								</div>
-							</c:forEach>
-						</div>
-						<div class="items-wrap cake-me close">
-							<c:forEach var="proItem" items="${cakeList}">
-								<div class="items">
-									<img src="./image/${proItem.proName}.jpg">
-									<form action="addItem.do" method="get" id="addItemForm">
-										<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
-										<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
-										<input type="text" class="proCount" name="proCount" />
-										<input class="proSubmit" type="submit" value="장바구니 넣기">
-									</form>
-
-								</div>
-							</c:forEach>
-						</div>
-
-						<div class="items-wrap cookie-me close">
-							<c:forEach var="proItem" items="${cookieList}">
-								<div class="items">
-									<img src="./image/${proItem.proName}.jpg">
-									<form action="addItem.do" method="get" id="addItemForm">
-										<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
-										<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
-										<input type="text" class="proCount" name="proCount" />
-
-										<input class="proSubmit" type="submit" value="장바구니 넣기">
-									</form>
-
-								</div>
-							</c:forEach>
-						</div>
+						<div id="content" style="margin-top:80px; margin-left:300px;">
+					<div class="items-wrap coffee-me close">
+						<c:forEach var="proItem" items="${coffeeList}">
+							<div class="items">
+								<img src="./image/${proItem.proImage}">
+								<form action="addItem.do" method="get" id="addItemForm">
+									<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
+									<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
+									<input type="text" class="proCount" name="proCount"/>									
+									<input class="proSubmit" type="submit" value="장바구니 넣기">
+								</form>
+							</div>
+						</c:forEach>
 					</div>
-					<div id="cart">
-						<form action="purchase_item.do" method="get">
-							보유 자산:
-							<input type="text" name="money" value="0">
-							<input type="submit" value="구매하기">
-							<ul>
-								<c:forEach var="menuList" items="${cart.cartList}" varStatus="status">
-									<li>이름: <input type="text" value="${menuList.getProduct().proName}" name="proName${status.count}"> 카테고리: <input type="text" value="${menuList.getProduct().proCategory}" name="proCate${status.count}"> 가격: <input type="text" value="${menuList.getProduct().proPrice}" name="proPrice${status.count}"> 갯수: <input type="text" value="${menuList.count}" name="proCount${status.count}">
-									</li>
-								</c:forEach>
-							</ul>
-						</form>
+					<div class="items-wrap cake-me close">
+						<c:forEach var="proItem" items="${cakeList}">
+							<div class="items">
+								<img src="./image/${proItem.proImage}">
+								<form action="addItem.do" method="get" id="addItemForm">
+									<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
+									<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
+									<input type="text" class="proCount" name="proCount"/>									
+									<input class="proSubmit" type="submit" value="장바구니 넣기">
+								</form>
+
+							</div>
+						</c:forEach>
 					</div>
+
+					<div class="items-wrap cookie-me close">
+						<c:forEach var="proItem" items="${cookieList}">
+							<div class="items">
+								<img src="./image/${proItem.proImage}">
+								<form action="addItem.do" method="get" id="addItemForm">
+									<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
+									<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
+									<input type="text" class="proCount" name="proCount"/>
+									
+									<input class="proSubmit" type="submit" value="장바구니 넣기">
+								</form>
+
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+				<div id="cart">
+					<form action="purchase_item.do" method="get">
+						보유 자산:
+						<input type="text" name="money" value="0">
+						<input type="submit" value="구매하기">
+						<ul>
+							<c:forEach var="menuList" items="${cart.cartList}" varStatus="status">
+								<li>이름: <input type="text" value="${menuList.getProduct().proName}" name="proName${status.count}"> 카테고리: <input type="text" value="${menuList.getProduct().proCategory}" name="proCate${status.count}"> 가격: <input type="text" value="${menuList.getProduct().proPrice}" name="proPrice${status.count}"> 갯수: <input type="text" value="${menuList.count}" name="proCount${status.count}">
+								</li>
+							</c:forEach>
+						</ul>
+					</form>
+				</div>				
 				</div>
 			</div>
 		</main>

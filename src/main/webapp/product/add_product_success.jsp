@@ -42,8 +42,10 @@
 									</tr>
 									<tr>
 										<td colspan="2">
-											<button type="button" onclick="location.href='../product/add_product.jsp'">확인</button>
-											<button type="submit" onclick="location.href='../.jsp'">수정</button>
+											<button type="button" style="width: 50px; height: 35px"
+											onclick="location.href='../product/add_product.jsp'">확인</button>
+											<button type="submit" style="width: 50px; height: 35px"
+											onclick="location.href='../.jsp'">수정</button>
 										</td>
 									</tr>
 								</form>
@@ -56,17 +58,5 @@
 		<!-- footer -->
 		<%@ include file="/ms_incl/ms_footer.jsp"%>
 	</div>
-</body>
-
-<body>
-<div id="wrapper">
-	<div id="content-wrapper">
-	<h3>상품등록에 성공하였습니다.</h3>
-	
-	상품이름 : ${product.proName}<br>
-	상품가격 : ${product.proPrice}<br>
-	상품카테고리 : ${product.proCategory}<br>
-	</div>
-</div>
 </body>
 </html>

@@ -35,7 +35,7 @@
                       </button>
                     </td>
                   </tr>
-             	 <form class="searchform" action="/product/find_product" method="post">
+             	 <form class="searchform" action="find_product" method="post">
                   <tr>
                     <th>카테고리</th>
                     <td>
@@ -69,7 +69,6 @@
                     <th class="t3">상품코드</th>
                     <th class="t4">상품명</th>
                     <th class="t5">가격</th>
-                    <th class="t6">수정/삭제</th>
                   </tr>
                 </thead>
               </table>
@@ -83,10 +82,6 @@
 							<td class="t3">${fn:split(productList, ',')[1]}</td>
 							<td class="t4">${fn:split(productList, ',')[2]}</td>
 							<td class="t5">${fn:split(productList, ',')[3]}</td>
-							<td class="t6">
-							<button class="searchform" action="/product/find_product" method="post">수정</button>
-							<button class="searchform" action="/product/find_product" method="post">삭제</button>
-							</td>
 						</tr>
 					  </c:forEach>
                   </tbody>
