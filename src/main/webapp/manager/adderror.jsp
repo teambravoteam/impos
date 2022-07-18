@@ -10,8 +10,7 @@
 <body>
 	<header>
 		<div class="headarea">
-			<span class="logo"> <a
-				href='<c:url value="/stock/FindAllStock"/>'>IMPOS</a>
+			<span class="logo"> <a>IMPOS</a>
 			</span>
 		</div>
 	</header>
