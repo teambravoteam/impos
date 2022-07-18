@@ -1,7 +1,6 @@
 package com.teambravo.impos.purchase.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -41,24 +40,16 @@ public class AddItemServlet extends HttpServlet {
 		Product p = productService.findProductByNameAndCategory(itemname, itemcate);
 		MenuList menu = new MenuList(p, count);
 		if (cart.getCartList().size() >= 5) {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-
-			out.println("<script language='javascript'>");
-			out.println("alert('품목은 5개까지 담아주세요.')");
-			out.println("history.go(-1)");
-			out.println("</script>");
-
-			out.flush();
-			
+			request.setAttribute("cart", cart);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("item_menu.jsp");
+			dispatcher.forward(request, response);
 			return;
 		} else {
 			cart.addList(menu);
+
+			request.setAttribute("cart", cart);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("item_menu.jsp");
+			dispatcher.forward(request, response);
 		}
-		request.setAttribute("cart", cart);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("item_menu.jsp");
-		dispatcher.forward(request, response);
-
 	}
-
 }
