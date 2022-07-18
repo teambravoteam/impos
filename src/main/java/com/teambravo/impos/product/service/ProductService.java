@@ -41,12 +41,16 @@ public class ProductService {
 	
 	// 상품수정
 	public void updateProduct(Product product) {
-		productDao.deleteProduct(product);
+		productDao.updateProduct(product);
 	}
 	
 	// 상품삭제
 	public void deleteProduct(Product product) {
 		productDao.deleteProduct(product);
+		
+		//String cateogry = product.getProCategory();
+		//String code = product.getProCode();
+		//stockService.deleteStockTable(cateogry, code);
 	}
 
 	// 카테고리별 상품 조회

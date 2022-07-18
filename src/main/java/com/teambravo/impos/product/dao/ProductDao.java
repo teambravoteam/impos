@@ -53,12 +53,17 @@ public class ProductDao {
 	// 상품수정
 	public void updateProduct(Product product) {
 		String sql = null;
+		System.out.println(product.getProCategory());
 		if (product.getProCategory().equals("coffee")) {
-			sql = "UPDATE FROM Coffee WHERE proCode=?";
+			System.out.println("coffeeee");
+			
+			sql = "UPDATE Coffee SET proName=?, proPrice=?, proCategory=? WHERE proCode=?";
 		} else if (product.getProCategory().equals("cookie")) {
-			sql = "UPDATE FROM Cookie WHERE proCode=?";
+			System.out.println("cookieeeeee");
+			sql = "UPDATE cookie SET proName=?, proPrice=?, proCategory=? WHERE proCode=?";
 		} else if (product.getProCategory().equals("cake")) {
-			sql = "UPDATE FROM Cake WHERE proCode=?";
+			System.out.println("cakeeee");
+			sql = "UPDATE cake SET proName=?, proPrice=?, proCategory=? WHERE proCode=?";
 		}
 
 		try {
@@ -68,9 +73,15 @@ public class ProductDao {
 			try {
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, product.getProCode());
 
-				System.out.println("UPDATED...");
+				pstmt.setString(1, product.getProName());
+				pstmt.setDouble(2, product.getProPrice());
+				pstmt.setString(3, product.getProCategory());
+				pstmt.setString(4, product.getProCode());
+				pstmt.executeUpdate();
+
+				System.out.println(product.getProCategory());
+				System.out.println("PRODUT UPDATED...");
 			} finally {
 				ds.close(pstmt, con);
 			}
@@ -97,9 +108,12 @@ public class ProductDao {
 			try {
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, product.getProCode());
 
-				System.out.println("DELETED...");
+				pstmt.setString(1, product.getProCode());
+				pstmt.executeUpdate();
+
+				System.out.println(product.getProCategory());
+				System.out.println("PRODUT DELETED...");
 			} finally {
 				ds.close(pstmt, con);
 			}

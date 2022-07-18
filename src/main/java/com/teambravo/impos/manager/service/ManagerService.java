@@ -19,7 +19,7 @@ public class ManagerService {
 		Managerdomain user = dao.findUser(userId);
 
 		if (user == null) { // 아이디가 존재하지 않으면 유저가 null이니 실패
-			System.out.println("아이디가 존재하지 않습니다");
+			System.out.println("아이디가 존재 X");
 			return false;
 		} else { // 아이디가 존재하면 비번을 입력한 비번이랑 비교
 			if (user.getPasswd().equals(passwd)) {
@@ -32,6 +32,22 @@ public class ManagerService {
 			}
 		}
 
+	}
+	
+	// 로그인된 유저의 정보를 불러온다
+	public Managerdomain user(String userId) {
+		Managerdomain user = dao.findUser(userId);
+		return user;
+	}
+	
+	// 아이디 중복확인
+	public boolean checkId(String userId) {
+		Managerdomain user = dao.findUser(userId);
+		
+		if (user.getUserId().equals(userId)) {
+			return false;
+		}
+		return true;
 	}
 	
 }

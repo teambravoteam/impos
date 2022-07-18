@@ -7,12 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-</body>
 <script type="text/javascript">
 	
-	alert("가입완료");
-	document.location.href="login.jsp";
+	alert("수정완료되었습니다.");
+	document.location.href="edit_product.jsp";
 
 </script>
+</body>
 </html>
