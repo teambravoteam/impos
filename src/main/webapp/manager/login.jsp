@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -12,9 +11,14 @@
 <body>
 	<header>
 		<div class="headarea">
-			<span class="logo"> 
-			<a>IMPOS</a>
-			</span>
+			<a class="logo" href="#">
+				<span>IMPOS</span>
+			</a>
+			<div class="gnb">
+				<a href="../purchase/start_purchase.jsp">
+					<img alt="장바구니" src="../purchase/image/purchaseIcon.png">
+				</a>
+			</div>
 		</div>
 	</header>
 	<div id="wrap">
@@ -64,15 +68,17 @@ a {
 	font-size: 30px;
 }
 
-.headarea .logo a {
+.headarea .logo span {
 	color: #3f5ec4;
 	font-weight: bold;
 }
 
 .headarea .gnb {
 	position: relative;
-	height: 60px;
+	float: right;
+	top: 20%;
 	right: 30px;
+	height: 60px;
 }
 
 /* main */
