@@ -83,7 +83,7 @@ public class MaterialDao {
 	
 	// 원재료 차감, 추가 (수정)
 	public void editVolume(String materialName, double materialVolume) {
-		String sql = "UPDATE Materail SET materialVolume = ? WHERE materialName = ?";
+		String sql = "UPDATE Material SET materialVolume = ? WHERE materialName = ?";
 		
 		try {
 			Connection con = null;
@@ -92,8 +92,9 @@ public class MaterialDao {
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(sql);
 				
-				pstmt.setString(1, materialName);
-				pstmt.setDouble(2, materialVolume);
+				pstmt.setDouble(1, materialVolume);
+				pstmt.setString(2, materialName);
+				
 				pstmt.executeUpdate();
 				
 				System.out.println("MATERIAL UPDATE COMPELTE!");
