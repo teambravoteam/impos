@@ -3,7 +3,7 @@
 
 <header>
 	<div class="headarea">
-		<a class="logo" href='<c:url value="/main/ms_main.jsp"/>'>
+		<a class="logo" href='/'>
 			<span>IMPOS</span>
 		</a>
 		<div class="gnb">
