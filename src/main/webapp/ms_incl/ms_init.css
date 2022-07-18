@@ -44,15 +44,15 @@ button {
 	font-weight: 700;
 }
 
-.stockMenu, .materialMenu {
+.productMenu, .stockMenu, .materialMenu {
 	box-sizing: border-box;
 }
 
-.stockMenu li, .materialMenu li {
+.productMenu li, .stockMenu li, .materialMenu li {
 	height: 0;
 	transition: .5s;
 }
 
-.on ~ .stockMenu li, .on ~ .materialMenu li {
+.on ~ .productMenu li, .on ~ .stockMenu li, .on ~ .materialMenu li {
 	height: 50px;
 }

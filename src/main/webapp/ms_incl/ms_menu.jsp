@@ -7,7 +7,12 @@
 <section id="snb">
 	<nav class="nav">
 		<ul class="left-menu" style="border: 0;">
-			<li style="border-bottom: 2px solid #eaeef3;"><a href="#">상품관리</a></li>
+			<li style="border-bottom: 2px solid #eaeef3;"><a id="productMenuA" href="#" style="background: #e1e7f0;" onclick="myFunc0()">상품관리</a>
+				<ul class="productMenu" style="border-bottom: 0px;">
+					<li class="submenu" style="border-bottom: 0px;"><a href="../product/add_product.jsp" style="background: #f2f4f7;">- 상품등록</a></li>
+					<li class="submenu" style="border-bottom: 0px;"><a href="../product/find_product_list.jsp" style="background: #f2f4f7;">- 상품검색</a></li>
+					<li class="submenu" style="border-bottom: 0px;"><a href="../product/edit_product.jsp" style="background: #f2f4f7;">- 상품 수정/삭제</a></li>
+				</ul></li>
 			<li style="border-bottom: 2px solid #eaeef3;"><a id="stockMenuA" href="#" style="background: #e1e7f0;" onclick="myFunc1()">재고관리</a>
 				<ul class="stockMenu" style="border-bottom: 0px;">
 					<li class="submenu" style="border-bottom: 0px;"><a href="../stock/find_stock_list.jsp" style="background: #f2f4f7;">- 재고검색</a></li>
