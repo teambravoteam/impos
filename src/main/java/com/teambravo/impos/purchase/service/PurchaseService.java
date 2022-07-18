@@ -50,25 +50,28 @@ public class PurchaseService {
 			System.out.println(money + "계산한돈");
 			purchaseDao.purchaseProductInsertSales(cart);
 			
-			for(int i = 0; i<cart.getCartList().size(); i++) {
-				if(cart.getCartList().get(i).getProduct().getProCategory() == "coffee") {
-					for(int j = 0; j<cart.getCartList().get(i).getCount(); j++) {
-						materialService.saleSubtractVolume(cart.getCartList().get(i).getProduct().getProName());
+			for(int i = 0; i<cart.getCartList().size(); i++) {		
+				MenuList menuList = cart.getCartList().get(i);
+				if(menuList.getProduct().getProCategory().equals("coffee")) {
+					for(int j = 0; j<menuList.getCount(); j++) {
+						materialService.saleSubtractVolume(menuList.getProduct().getProName());
 					}
 				}
 				
-				if(cart.getCartList().get(i).getProduct().getProCategory() == "coffee") {
-					for(int j = 0; j<cart.getCartList().get(i).getCount(); j++) {
-						stockService.minusStock(cart.getCartList().get(i).getProduct().getProCategory(), cart.getCartList().get(i).getProduct().getProCode(), 1 );
+				if(menuList.getProduct().getProCategory().equals("cake")) {
+					for(int j = 0; j<menuList.getCount(); j++) {
+						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
 					}
 				}
 				
-				if(cart.getCartList().get(i).getProduct().getProCategory() == "coffee") {
-					for(int j = 0; j<cart.getCartList().get(i).getCount(); j++) {
-						stockService.minusStock(cart.getCartList().get(i).getProduct().getProCategory(), cart.getCartList().get(i).getProduct().getProCode(), 1 );
+				if(menuList.getProduct().getProCategory().equals("cookie")) {
+					for(int j = 0; j<menuList.getCount(); j++) {
+						stockService.minusStock(menuList.getProduct().getProCategory(), menuList.getProduct().getProCode(), 1 );
 					}
 				}
 			}
+			
+			
 //			for(MenuList menuList : cart.getCartList()) {
 //				if(menuList.getProduct().getProCategory() == "coffee") {
 //					//purchaseDao.purchaseProductDeleteCoffeeMaterial(menuList);
