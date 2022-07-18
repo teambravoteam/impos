@@ -21,6 +21,7 @@ html, body, ul, li, h1, h2, h3, h4, h5, h6 {
 
 li {
 	list-style: none;
+	z-index: 5;
 }
 
 a {
@@ -41,4 +42,17 @@ button {
 .logo {
 	color: #3f5ec4;
 	font-weight: 700;
+}
+
+.stockMenu, .materialMenu {
+	box-sizing: border-box;
+}
+
+.stockMenu li, .materialMenu li {
+	height: 0;
+	transition: .5s;
+}
+
+.on ~ .stockMenu li, .on ~ .materialMenu li {
+	height: 50px;
 }

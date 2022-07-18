@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>IMPOS</title>
 <link rel="stylesheet" href="../ms_incl/ms_init.css">
-<link rel="stylesheet" href="./css/main_style.css">
+<link rel="stylesheet" href="../main/main_style.css">
 </head>
 <body>
 	<div class="wrap">
