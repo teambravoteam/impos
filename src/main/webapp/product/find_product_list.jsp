@@ -12,9 +12,9 @@
 </head>
 <body>
 	<div class="wrap">
-		<!-- header -->
-		<%@ include file="/ms_incl/ms_header.jsp"%>
-		<!-- main -->
+	  <!-- header -->
+	  <%@ include file="/ms_incl/ms_header.jsp"%>
+	  <!-- main -->
     <main>
       <div id="container">
         <!-- 왼쪽 메뉴 영역 -->
@@ -35,7 +35,7 @@
                       </button>
                     </td>
                   </tr>
-             	 <form class="searchform" action="/product/find_product" method="post">
+             	 <form class="searchform" action="find_product_list" method="post">
                   <tr>
                     <th>카테고리</th>
                     <td>
