@@ -1,6 +1,7 @@
 package com.teambravo.impos.sale.servlet;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -32,8 +33,11 @@ public class FindAllSaleServlet extends HttpServlet {
 		// 3. 비즈니스 서비스 호출
 		List<Sale> saleList = saleService.findAllSale();
 		Double allSaPrice = saleService.findAllSaPrice();
+		int allSaPriceInt = (int) Math.round(allSaPrice);
+		DecimalFormat df = new DecimalFormat("###,###");
+		String money = df.format(allSaPriceInt);
 		request.setAttribute("saleList", saleList);
-		request.setAttribute("allSaPrice", allSaPrice);
+		request.setAttribute("allSaPrice", money);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("find_AllSale.jsp");
 		dispatcher.forward(request, response);

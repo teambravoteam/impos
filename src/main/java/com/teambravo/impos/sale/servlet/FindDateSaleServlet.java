@@ -1,6 +1,7 @@
 package com.teambravo.impos.sale.servlet;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +61,11 @@ public class FindDateSaleServlet extends HttpServlet {
 		List<Sale> saleList = saleService.findDateSale(saYear, saMonth, saDay);
 		Double allSaPrice = saleService.findDateSaPrice(saYear, saMonth, saDay);
 		request.setAttribute("saleList", saleList);
-		request.setAttribute("allSaPrice", allSaPrice);
+		int allSaPriceInt = (int) Math.round(allSaPrice);
+		DecimalFormat df = new DecimalFormat("###,###");
+		String money = df.format(allSaPriceInt);
+		request.setAttribute("saleList", saleList);
+		request.setAttribute("allSaPrice", money);
 
 		dispatcher = request.getRequestDispatcher("find_DateSale.jsp");
 		dispatcher.forward(request, response);

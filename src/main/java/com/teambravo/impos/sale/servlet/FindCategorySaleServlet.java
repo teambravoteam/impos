@@ -1,6 +1,7 @@
 package com.teambravo.impos.sale.servlet;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,11 @@ public class FindCategorySaleServlet extends HttpServlet {
 		List<Sale> saleList = saleService.findCategorySale(saCategory);
 		Double allSaPrice = saleService.findCategorySaPrice(saCategory);
 		request.setAttribute("saleList", saleList);
-		request.setAttribute("allSaPrice", allSaPrice);
+		int allSaPriceInt = (int) Math.round(allSaPrice);
+		DecimalFormat df = new DecimalFormat("###,###");
+		String money = df.format(allSaPriceInt);
+		request.setAttribute("saleList", saleList);
+		request.setAttribute("allSaPrice", money);
 
 		dispatcher = request.getRequestDispatcher("find_CategorySale.jsp");
 		dispatcher.forward(request, response);

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.net.URLEncoder" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
@@ -143,9 +144,17 @@
 												<td class="t1">${fn:split(salelist, ',')[0]}</td>
 												<td class="t2">${fn:split(salelist, ',')[1]}</td>
 												<td class="t3">${fn:split(salelist, ',')[2]}</td>
-												<td class="t4">${fn:split(salelist, ',')[3]}</td>
+
+												<td class="t4">
+													<fmt:formatNumber type="number" maxFractionDigits="3" value="${fn:split(salelist, ',')[3]}" />
+												</td>
+
 												<td class="t5">${fn:split(salelist, ',')[4]}</td>
-												<td class="t6">${fn:split(salelist, ',')[5]}</td>
+
+												<td class="t6">
+													<fmt:formatNumber type="number" maxFractionDigits="3" value="${fn:split(salelist, ',')[5]}" />
+												</td>
+
 												<td class="t7">${fn:split(salelist, ',')[6]}</td>
 											</tr>
 										</c:forEach>
