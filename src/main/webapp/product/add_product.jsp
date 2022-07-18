@@ -34,7 +34,7 @@
 									<th>카테고리</th>
 									<td>
 										<form class="searchform" action="add_product" method="post">
-											<select name="procategory" class="procategory">
+											<select name="procategory" class="procategory" style="width:204px;height:28px;">
 												<option value="coffee">coffee</option>
 												<option value="cookie">cookie</option>
 												<option value="cake">cake</option>
@@ -58,10 +58,10 @@
 								</tr>
 								<tr>
 									<td colspan="2">
-										<button type="button"
+										<button type="button" style="width:50px;height:35px"
 											onclick="location.href='../product/find_product_list.jsp'">취소</button>
-										<button type="submit">저장</button>
-										<button type="button"
+										<button type="submit" style="width:50px;height:35px">저장</button>
+										<button type="button" style="width:50px;height:35px"
 											onclick="location.href='../product/find_product_list.jsp'">목록</button>
 
 										</form>
