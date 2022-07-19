@@ -22,7 +22,7 @@
 					<li><p>아이디</p> <input type="text" name="userId"
 						 onkeyup="noSpaceForm(this);" value="<c:out value="${userId}"/>"/><button type="submit" name="checkId" value="checkId">중복체크</button>
 					</li>
-					<div>
+					<div class="red">
 						<c:out value="${check}" />
 					</div>
 					<li><p>비밀번호</p> <input type="password" name="passwd"  onkeyup="noSpaceForm(this);"></li>
@@ -51,6 +51,10 @@ body {
 
 a {
 	text-decoration: none;
+}
+
+.red {
+	color: red;
 }
 
 /* header */
@@ -200,6 +204,7 @@ button {
 #wrap ul li:nth-child(1) button {
 	height: 39px;
 	width: calc(100% - 80%);
+	margin-top: 0;
 }
 
 button:hover {
