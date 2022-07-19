@@ -13,5 +13,6 @@
 	alert("로그아웃 되었습니다");
 	document.location.href = "login.jsp";
 	<c:remove var="name" />
+	<c:remove var="userId" />
 </script>
 </html>

@@ -94,10 +94,8 @@ public class AddManagerServlet extends HttpServlet {
 			
 			service.addManager(user);
 			request.setAttribute("user", user);
-
 			dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
-
 			
 		}
 		

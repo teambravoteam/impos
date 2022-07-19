@@ -21,9 +21,9 @@
 			<form action="add_manager1" method="get">
 				<ul>
 					<li><p>아이디</p>
-					<input type="text" name="userId" value="<c:out value="${userId}"/>"/></li>
+						<input type="text" name="userId" value="<c:out value="${userId}"/>" /><button type="submit" name="checkId" value="checkId">중복체크</button>
+					</li>
 						<div><c:out value="${check}" /></div>
-						<button type="submit" name="checkId" value="checkId">중복체크</button>
 					<li><p>비밀번호</p>
 						<input type="password" name="passwd"></li>
 					<li><p>이름</p>
@@ -82,6 +82,8 @@ a {
 	right: 30px;
 }
 
+
+
 #banner {
 	width: 100%;
 	height: 60px;
@@ -110,12 +112,12 @@ ul, li {
 	padding: 0;
 }
 
-#wrap ul li:nth-child(8) {
+#wrap ul li:nth-child(7) {
 	text-align: center;
 	margin-top: 20px;
 }
 
-#wrap ul li:nth-child(8) a {
+#wrap ul li:nth-child(7) a {
 	color: black;
 }
 
@@ -135,6 +137,11 @@ ul, li {
 #content-wrapper .title {
 	margin-bottom: 35px;
 }
+
+#wrap ul li:nth-child(1) input {
+	width: 80%;
+}
+
 
 input {
 	width: 100%;
@@ -186,7 +193,7 @@ button {
 	text-align: center;
 	border: 1px solid grey;
 	height: 40px;
-	width: 200px;
+	width: 100%;
 	font-size: 15px;
 	margin-top: 30px;
 	transition: .3s;
@@ -194,16 +201,9 @@ button {
 }
 
 
-button:nth-child(1) {
-	background-color: lightgrey;
-	text-align: center;
-	border: 1px solid grey;
-	height: 45px;
-	width: 400px;
-	font-size: 15px;
-	margin-top: 30px;
-	transition: .3s;
-	border-radius: 5px;
+#wrap ul li:nth-child(1) button {
+	height: 39px;
+	width: calc( 100% - 80% );
 }
 button:hover {
 	background-color: grey;	
