@@ -20,14 +20,14 @@
 			<div class="title">회원가입</div>
 			<form action="add_manager1" method="get">
 				<ul>
-					<li><p>이름</p>
-						<input type="text" name="name"></li>
 					<li><p>아이디</p>
 					<input type="text" name="userId" value="<c:out value="${userId}"/>"/></li>
 						<div><c:out value="${check}" /></div>
 						<button type="submit" name="checkId" value="checkId">중복체크</button>
 					<li><p>비밀번호</p>
 						<input type="password" name="passwd"></li>
+					<li><p>이름</p>
+						<input type="text" name="name"></li>
 					<li><p>지점명</p>
 						<input type="text" name="area"></li>
 					<li>
@@ -182,6 +182,19 @@ li p {
 }
 
 button {
+	background-color: lightgrey;
+	text-align: center;
+	border: 1px solid grey;
+	height: 40px;
+	width: 200px;
+	font-size: 15px;
+	margin-top: 30px;
+	transition: .3s;
+	border-radius: 5px;
+}
+
+
+button:nth-child(1) {
 	background-color: lightgrey;
 	text-align: center;
 	border: 1px solid grey;
