@@ -190,10 +190,10 @@ public class StockDao {
 			//product테이블이랑 join해야한다.
 			if (category.equals("cake")) {
 				sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-						+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE a.proName=?";
+						+ "FROM Cake a INNER JOIN CakeStock b  ON (a.proCode = b.scode) WHERE a.proName LIKE '%?%'";
 			} else if (category.equals("cookie")) {
 				sql = "SELECT b.sid, a.proCategory, a.proCode, a.proName, a.proPrice, b.stock "
-						+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE a.proName=?";
+						+ "FROM Cookie a INNER JOIN CookieStock b  ON (a.proCode = b.scode) WHERE a.proName LIKE '%?%'";
 			}
 			
 			SelectStock s = null;
