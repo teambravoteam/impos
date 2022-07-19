@@ -42,7 +42,7 @@
 										<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
 										<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
 										<input type="text" class="proPrice" name="proPrice" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${proItem.proPrice}" />원" readonly />
-										<input type="text" class="proCount" name="proCount" placeholder="갯수" />
+										<input type="number" class="proCount" name="proCount" placeholder="갯수" min="1" max="50" required/>
 										<input class="proSubmit" type="submit" value="장바구니 넣기">
 									</form>
 								</div>
@@ -56,7 +56,7 @@
 										<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
 										<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
 										<input type="text" class="proPrice" name="proPrice" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${proItem.proPrice}" />원" readonly />
-										<input type="text" class="proCount" name="proCount" placeholder="갯수" />
+										<input type="number" class="proCount" name="proCount" placeholder="갯수" min="1" max="50" required/>
 										<input class="proSubmit" type="submit" value="장바구니 넣기">
 									</form>
 
@@ -72,7 +72,7 @@
 										<input type="text" class="proName" name="proName" value="${proItem.proName}" readonly />
 										<input type="text" class="proCate" name="proCate" value="${proItem.proCategory}" readonly />
 										<input type="text" class="proPrice" name="proPrice" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${proItem.proPrice}" />원" readonly />
-										<input type="text" class="proCount" name="proCount" placeholder="갯수" />
+										<input type="number" class="proCount" name="proCount" placeholder="갯수" min="1" max="50" required/>
 										<input class="proSubmit" type="submit" value="장바구니 넣기">
 									</form>
 
@@ -83,7 +83,7 @@
 					<div id="cart">
 						<form action="purchase_item.do" method="get">
 							보유 자산:
-							<input type="text" name="money" value="0">
+							<input type="number" name="money" value="0" required>
 							<input type="submit" value="구매하기">
 							<ul>
 								<c:set var="total" value="0" />
