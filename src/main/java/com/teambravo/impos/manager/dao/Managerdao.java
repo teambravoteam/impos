@@ -61,6 +61,8 @@ public class Managerdao {
 					user.setPassswd(rs.getString("passwd"));
 					user.setArea(rs.getString("area"));
 				}
+				
+				
 			
 				
 			} finally {

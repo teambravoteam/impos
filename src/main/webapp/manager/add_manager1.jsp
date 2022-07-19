@@ -23,12 +23,16 @@
 					<li><p>이름</p>
 						<input type="text" name="name"></li>
 					<li><p>아이디</p>
-						<input type="text" name="userId"></li>
+					<input type="text" name="userId" value="<c:out value="${userId}"/>"/></li>
+						<div><c:out value="${check}" /></div>
+						<button type="submit" name="checkId" value="checkId">중복체크</button>
 					<li><p>비밀번호</p>
 						<input type="password" name="passwd"></li>
 					<li><p>지점명</p>
 						<input type="text" name="area"></li>
-					<li><button type="submit">가입하기</button></li>
+					<li>
+						<button type="submit" name="checkId" value="all">확인</button>
+					</li>
 					<li><a href='<c:url value="/manager/login.jsp" />'>취소</a></li>
 				</ul>
 			</form>
@@ -106,12 +110,12 @@ ul, li {
 	padding: 0;
 }
 
-#wrap ul li:nth-child(6) {
+#wrap ul li:nth-child(8) {
 	text-align: center;
 	margin-top: 20px;
 }
 
-#wrap ul li:nth-child(6) a {
+#wrap ul li:nth-child(8) a {
 	color: black;
 }
 
@@ -195,4 +199,19 @@ button:hover {
 
 
 </style>
+
+
+<script type="text/javascript">
+  function mySubmit(index) {
+    if (index == 1) {
+      document.myForm.action='ok1.html';
+    }
+    if (index == 2) {
+      document.myForm.action='ok2.html';
+    }
+    document.myForm.submit();
+  }
+</script>
+
+
 </html>

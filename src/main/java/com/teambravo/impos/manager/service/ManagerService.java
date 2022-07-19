@@ -44,10 +44,12 @@ public class ManagerService {
 	public boolean checkId(String userId) {
 		Managerdomain user = dao.findUser(userId);
 		
-		if (user.getUserId().equals(userId)) {
-			return false;
+		if (user == null) {
+			return true;
 		}
-		return true;
+		
+		return false;
+		
 	}
 	
 }

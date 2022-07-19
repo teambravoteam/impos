@@ -12,14 +12,13 @@
 	<div class="wrap">
 		<header>
 			<div class="headarea">
-				<span class="logo"> 
-					<a href='<c:url value="/stock/FindAllStock"/>'>IMPOS</a>
+				<span class="logo"> <a
+					href='<c:url value="/stock/FindAllStock"/>'>IMPOS</a>
 				</span>
 				<div class="gnb">
 					<ul>
-						<li class="logout">
-						<a href='<c:url value="/main/ms_main.jsp" />'>돌아가기</a></li>
-						<a href='<c:url value="/manager/logout.jsp" />'>로그아웃</a></li>
+						<li class="logout"><a href='<c:url value="/main/ms_main.jsp" />'>돌아가기</a></li>			
+						<li><a href='<c:url value="/manager/logout.jsp" />'>로그아웃</a></li>
 					</ul>
 				</div>
 			</div>
@@ -42,33 +41,27 @@
 						<table class="search-table">
 							<tr>
 								<th>이름</th>
-								<td>
-									<c:out value="${name}" />
-								</td>
+								<td><c:out value="${name}" /></td>
 							</tr>
 							<tr>
 								<th>아이디</th>
-								<td>
-									<c:out value="${userId}" />
-								</td>
-								<tr>
+								<td><c:out value="${userId}" /></td>
+							<tr>
 								<th>비밀번호</th>
-								<td>
-									<c:out value="${passwd}" />
-								</td>
+								<td><c:out value="${passwd}" /></td>
 							</tr>
 							<tr>
 								<th>지점명</th>
-								<td>
-									<c:out value="${area}" />
-								</td>
+								<td><c:out value="${area}" /></td>
 							</tr>
-							</tr>
-							
+						</table>
 					</div>
+				</div>
+			</div>
 		</main>
 
 	</div>
+
 	<!-- wrap -->
 
 
@@ -149,7 +142,6 @@ main {
 	height: calc(100vh - 80px - 50px); /*100% - header - footer*/
 }
 
-
 /* 왼쪽 메뉴 */
 section#snb {
 	flex: 250px;
@@ -183,37 +175,33 @@ section#snb nav ul li a {
 	padding: 50px;
 }
 
-
 /* content table영역 */
 table {
-  width: 100%;
-  border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
-
 
 /* form table */
 table.search-table {
-  margin-top: 10px;
-  border: 1px solid #bdbdbd;
-
+	margin-top: 10px;
+	border: 1px solid #bdbdbd;
 }
 
 table.search-table tr {
-  border: 1px solid #bdbdbd;
+	border: 1px solid #bdbdbd;
 }
 
 table.search-table th {
-  width: 20%;
-  border-right: 1px solid #bdbdbd;
-  padding: 10px 0;
-  background: #f2f2f2;
+	width: 20%;
+	border-right: 1px solid #bdbdbd;
+	padding: 10px 0;
+	background: #f2f2f2;
 }
+
 table.search-table td {
-  width: 80%;
-  padding: 5px 10px;
+	width: 80%;
+	padding: 5px 10px;
 }
-
-
 </style>
 
 </html>
