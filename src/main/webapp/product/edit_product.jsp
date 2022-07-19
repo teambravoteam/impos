@@ -80,23 +80,23 @@
 										<c:forEach var="productList" items="${productList}" varStatus="status">
 											<tr>
 												<form action="edit_product" method="post">
-												<td class="t1">${status.index + 1}</td>
-												<td class="t2">
-													<input type="text" name="category" value="${fn:split(productList, ',')[0]}">
-												</td>
-												<td class="t3">${fn:split(productList, ',')[1]}
-													<input type="hidden" name="code" value="${fn:split(productList, ',')[1]}">
-												</td>
-												<td class="t4">
-													<input type="text" name="name" value="${fn:split(productList, ',')[2]}">
-												</td>
-												<td class="t5">
-													<input type="text" name="price" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${fn:split(productList, ',')[3]}" />">
-												</td>
-												<td class="t6">
-													<button type="submit" name="button" value="edit">수정</button>
-													<button type="submit" name="button" value="delete">삭제</button>
-												</td>
+													<td class="t1">${status.index + 1}</td>
+													<td class="t2">
+														<input type="text" name="category" value="${fn:split(productList, ',')[0]}">
+													</td>
+													<td class="t3">${fn:split(productList, ',')[1]}
+														<input type="hidden" name="code" value="${fn:split(productList, ',')[1]}">
+													</td>
+													<td class="t4">
+														<input type="text" name="name" value="${fn:split(productList, ',')[2]}">
+													</td>
+													<td class="t5">
+														<input type="text" name="price" value="${fn:split(productList, ',')[3]}">
+													</td>
+													<td class="t6">
+														<button type="submit" name="button" value="edit">수정</button>
+														<button type="submit" name="button" value="delete">삭제</button>
+													</td>
 												</form>
 											</tr>
 										</c:forEach>
