@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../ms_incl/ms_style.css">
 <link rel="stylesheet" href="./css/purchase_style.css">
 
-<title>Insert title here</title>
+<title>무인카페 키오스크 시스템</title>
 </head>
 <body>
 	<div class="wrap">

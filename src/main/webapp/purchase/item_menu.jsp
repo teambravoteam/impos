@@ -14,7 +14,7 @@
 
 <script type="text/javascript" src="./js/jquery.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
-<title>Insert title here</title>
+<title>메뉴 선택</title>
 </head>
 <body>
 	<div class="wrap">
@@ -83,7 +83,7 @@
 					<div id="cart">
 						<form action="purchase_item.do" method="get">
 							보유 자산:
-							<input type="number" name="money" value="0" required>
+							<input type="number" name="money" min="1" max="10000000" required>
 							<input type="submit" value="구매하기">
 							<ul>
 								<c:set var="total" value="0" />
