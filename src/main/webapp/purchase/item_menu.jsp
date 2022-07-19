@@ -83,10 +83,13 @@
 						<input type="text" name="money" value="0">
 						<input type="submit" value="구매하기">
 						<ul>
+							<c:set var = "total" value = "0" />
 							<c:forEach var="menuList" items="${cart.cartList}" varStatus="status">
 								<li>이름: <input type="text" value="${menuList.getProduct().proName}" name="proName${status.count}"> 카테고리: <input type="text" value="${menuList.getProduct().proCategory}" name="proCate${status.count}"> 가격: <input type="text" value="${menuList.getProduct().proPrice}" name="proPrice${status.count}"> 갯수: <input type="text" value="${menuList.count}" name="proCount${status.count}">
 								</li>
+								<c:set var= "total" value="${total + menuList.getProduct().proPrice * menuList.getCount()}"/>								
 							</c:forEach>
+							<li> 총 계산하실 금액 : ${total} </li>
 						</ul>
 					</form>
 					<form action="minus_item.do" method="get">
