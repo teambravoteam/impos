@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.net.URLDecoder"%>
 <%@page import="java.util.*,java.io.*"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,7 @@
 									</tr>
 									<tr>
 										<th>가격</th>
-										<td>${product.proPrice}</td>
+										<td><fmt:formatNumber type="number" maxFractionDigits="3" value="${product.proPrice}" /></td>
 									</tr>
 									<tr>
 										<td colspan="2">
