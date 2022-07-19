@@ -26,8 +26,8 @@
 			<div class="title">로그인</div>
 			<form action="login" method="post">
 				<ul>
-					<li><p>아이디</p> <input type="text" name="userId"></li>
-					<li><p>비밀번호</p> <input type="password" name="passwd"></li>
+					<li><p>아이디</p> <input type="text" name="userId"  onkeyup="noSpaceForm(this);"></li>
+					<li><p>비밀번호</p> <input type="password" name="passwd"  onkeyup="noSpaceForm(this);"></li>
 					<li><button type="submit">로그인</button></li>
 					<li><a href='<c:url value="/manager/add_manager1.jsp" />'>가입하기</a></li>
 				</ul>
@@ -116,7 +116,8 @@ ul, li {
 }
 
 #wrap ul li:nth-child(4) a {
-	color: black;
+	color: #3f5ec4;
+	font-weight: bold;
 }
 
 #wrap {
@@ -197,4 +198,22 @@ button:hover {
 	color: #fff;
 }
 </style>
+
+<script type="text/javascript">
+
+
+function noSpaceForm(obj)
+{
+	  var str_space = /\s/;
+	  if(str_space.exec(obj.value))
+	  {
+	  	alert("해당 항목에는 공백을 사용할 수 없습니다.");
+	  	obj.focus();
+	  	obj.value = obj.value.replace(' ','');
+	  	return false;
+	  }
+}
+
+
+</script>
 </html>

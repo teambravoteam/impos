@@ -10,8 +10,7 @@
 <body>
 	<header>
 		<div class="headarea">
-			<span class="logo"> 
-			<a>IMPOS</a>
+			<span class="logo"> <a>IMPOS</a>
 			</span>
 		</div>
 	</header>
@@ -20,16 +19,15 @@
 			<div class="title">회원가입</div>
 			<form action="add_manager1" method="get">
 				<ul>
-					<li><p>아이디</p>
-						<input type="text" name="userId" value="<c:out value="${userId}"/>" /><button type="submit" name="checkId" value="checkId">중복체크</button>
+					<li><p>아이디</p> <input type="text" name="userId"
+						 onkeyup="noSpaceForm(this);" value="<c:out value="${userId}"/>"/><button type="submit" name="checkId" value="checkId">중복체크</button>
 					</li>
-						<div><c:out value="${check}" /></div>
-					<li><p>비밀번호</p>
-						<input type="password" name="passwd"></li>
-					<li><p>이름</p>
-						<input type="text" name="name"></li>
-					<li><p>지점명</p>
-						<input type="text" name="area"></li>
+					<div>
+						<c:out value="${check}" />
+					</div>
+					<li><p>비밀번호</p> <input type="password" name="passwd"  onkeyup="noSpaceForm(this);"></li>
+					<li><p>이름</p> <input type="text" name="name"  onkeyup="noSpaceForm(this);"></li>
+					<li><p>지점명</p> <input type="text" name="area"  onkeyup="noSpaceForm(this);"></li>
 					<li>
 						<button type="submit" name="checkId" value="all">확인</button>
 					</li>
@@ -38,10 +36,12 @@
 			</form>
 		</div>
 	</div>
-	
+
 </body>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap')
+	;
 
 body {
 	font-family: 'Nanum Gothic', sans-serif;
@@ -82,8 +82,6 @@ a {
 	right: 30px;
 }
 
-
-
 #banner {
 	width: 100%;
 	height: 60px;
@@ -118,7 +116,8 @@ ul, li {
 }
 
 #wrap ul li:nth-child(7) a {
-	color: black;
+	color: #3f5ec4;
+	font-weight: bold;
 }
 
 #wrap {
@@ -127,13 +126,14 @@ ul, li {
 }
 
 #wrap #content-wrapper {
-	margin-top: calc( 100% - 55%);
+	margin-top: calc(100% - 55%);
 }
 
 #wrap .title {
 	text-align: center;
 	font-size: 35px;
 }
+
 #content-wrapper .title {
 	margin-bottom: 35px;
 }
@@ -141,7 +141,6 @@ ul, li {
 #wrap ul li:nth-child(1) input {
 	width: 80%;
 }
-
 
 input {
 	width: 100%;
@@ -172,8 +171,6 @@ input.addr {
 	width: 86%;
 }
 
-
-
 li span {
 	margin-left: 3px;
 	margin-right: 3px;
@@ -200,31 +197,31 @@ button {
 	border-radius: 5px;
 }
 
-
 #wrap ul li:nth-child(1) button {
 	height: 39px;
-	width: calc( 100% - 80% );
+	width: calc(100% - 80%);
 }
+
 button:hover {
-	background-color: grey;	
+	background-color: grey;
 	color: #fff;
 }
-
-
 </style>
 
-
 <script type="text/javascript">
-  function mySubmit(index) {
-    if (index == 1) {
-      document.myForm.action='ok1.html';
-    }
-    if (index == 2) {
-      document.myForm.action='ok2.html';
-    }
-    document.myForm.submit();
-  }
-</script>
 
+function noSpaceForm(obj)
+{
+	  var str_space = /\s/;
+	  if(str_space.exec(obj.value))
+	  {
+	  	alert("해당 항목에는 공백을 사용할 수 없습니다.");
+	  	obj.focus();
+	  	obj.value = obj.value.replace(' ','');
+	  	return false;
+	  }
+}
+
+</script>
 
 </html>
