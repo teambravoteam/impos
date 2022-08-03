@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +28,7 @@
 							</c:forEach>
 						</ul>
 					</c:if>
-					<jsp:useBean id="product"
-						class="com.teambravo.impos.product.domain.Product" scope="request" />
+					<jsp:useBean id="product" class="com.teambravo.impos.product.domain.Product" scope="request" />
 					상품명 :
 					<jsp:getProperty property="proName" name="product" /><br> 가격 :
 					<jsp:getProperty property="proPrice" name="product" /><br>

@@ -39,14 +39,14 @@
 									</tr>
 									<tr>
 										<th>가격</th>
-										<td><fmt:formatNumber type="number" maxFractionDigits="3" value="${product.proPrice}" /></td>
+										<td>
+											<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.proPrice}" />
+										</td>
 									</tr>
 									<tr>
 										<td colspan="2">
-											<button type="button" style="width: 50px; height: 35px"
-											onclick="location.href='../product/add_product.jsp'">확인</button>
-											<button type="submit" style="width: 50px; height: 35px"
-											onclick="location.href='../.jsp'">수정</button>
+											<button type="button" style="width: 50px; height: 35px" onclick="location.href='../product/add_product.jsp'">확인</button>
+											<button type="submit" style="width: 50px; height: 35px" onclick="location.href='../.jsp'">수정</button>
 										</td>
 									</tr>
 								</form>
