@@ -47,7 +47,6 @@ public class ManagerService {
 		if (user == null) {
 			return true;
 		}
-		
 		return false;
 		
 	}
